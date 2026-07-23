@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage[utf8]{inputenc}
+\usepackage{url}
 
 \journal{Clinical Nutrition}
 
@@ -130,11 +131,11 @@ All analyses were conducted using R 4.6.0 with the \texttt{survey}, \texttt{surv
 
 Of 44,066 eligible participants aged $\ge$18, 313 (0.7\%) had a GI cancer diagnosis, comprising 92 from NHANES III and 221 from Continuous NHANES. Colorectal cancer was the most common (n=241, 77.0\%), followed by liver (n=23, 7.3\%), stomach (n=19, 6.1\%), esophageal (n=15, 4.8\%), pancreatic (n=8, 2.6\%), and gallbladder (n=6, 1.9\%). The remaining cases were rectal (n=8). GI cancer patients were substantially older than the general population (67.5 vs 45.5 years) and had lower PNI (50.8 vs 53.2), indicating worse nutritional status. During a median follow-up of 8.8 years (up to 31 years), 169 deaths (54.0\%) occurred among GI cancer patients.
 
-Table~1 summarizes baseline characteristics by GI tumor status, and Table~2 shows characteristics by PNI tertile among GI cancer patients. Patients in the lowest PNI tertile had substantially higher mortality (70.5\%) compared to the middle (46.2\%) and highest (45.2\%) tertiles, with median survival of 6.5, 12.5, and 13.9 years, respectively.
+Table~1 summarizes baseline characteristics by GI tumor status, and Table~2 shows characteristics by PNI tertile among GI cancer patients. Patients in the lowest PNI tertile had substantially higher mortality (70.5\%) compared to the middle (46.2\%) and highest (45.2\%) tertiles, with median survival of 6.5, 12.5, and 13.9 years, respectively (Figure~1A).
 
 \subsection{All-Cause Mortality}
 
-All three nutritional indices significantly predicted all-cause mortality after adjustment for age, sex, and race/ethnicity (Table~3). GNRI showed the strongest association (HR 0.67 per 1-SD, 95\% CI 0.57--0.80, p$<$0.001), followed by CONUT (HR 0.71, 95\% CI 0.61--0.83, p$<$0.001) and PNI (HR 0.78, 95\% CI 0.63--0.96, p=0.020).
+All three nutritional indices significantly predicted all-cause mortality after adjustment for age, sex, and race/ethnicity (Table~3). GNRI showed the strongest association (HR 0.67 per 1-SD, 95\% CI 0.57--0.80, p$<$0.001), followed by CONUT (HR 0.71, 95\% CI 0.61--0.83, p$<$0.001) and PNI (HR 0.78, 95\% CI 0.63--0.96, p=0.020) (Figure~2A).
 
 \begin{table}[h]
 \caption{Cox proportional hazards---nutritional indices and all-cause mortality.}
@@ -158,34 +159,35 @@ GNRI   & Adjusted$^*$ & 0.67 (0.57--0.80) & $<$0.001 \\
 
 \subsection{Time-Dependent Effects}
 
-The proportional hazards assumption was violated for PNI (Schoenfeld residuals p=0.017) but not for GNRI (p=0.087) or CONUT (p=0.430). Time-dependent Cox models revealed marked attenuation of the PNI effect: the protective association was strongest in the first 2 years (HR 0.34, 95\% CI 0.21--0.54, p$<$0.001) and non-significant thereafter (2--5 year: HR 1.32, p=0.490; 5+ year: HR 0.81, p=0.450; interaction p$<$0.001). GNRI showed a similar temporal pattern (0--2 year HR 0.53, p=0.034), while CONUT demonstrated more stable effects across periods.
+The proportional hazards assumption was violated for PNI (Schoenfeld residuals p=0.017) but not for GNRI (p=0.087) or CONUT (p=0.430). Time-dependent Cox models revealed marked attenuation of the PNI effect: the protective association was strongest in the first 2 years (HR 0.34, 95\% CI 0.21--0.54, p$<$0.001) and non-significant thereafter (2--5 year: HR 1.32, p=0.490; 5+ year: HR 0.81, p=0.450; interaction p$<$0.001). GNRI showed a similar temporal pattern (0--2 year HR 0.53, p=0.034), while CONUT demonstrated more stable effects across periods (Figure~3A).
 
-In landmark analysis, PNI showed attenuated and non-significant effects at 1, 3, and 5 years, while CONUT and GNRI maintained significant associations at all landmark times (Table~4).
+In landmark analysis, PNI showed attenuated and non-significant effects at 1, 3, and 5 years, while CONUT and GNRI maintained significant associations at all landmark times (Table~4, Figure~3B).
 
 \begin{table}[h]
 \caption{Landmark analysis---adjusted HR per 1-SD.}
 \label{tab:landmark}
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lccc}
 \toprule
-Index & 1-year Landmark & 3-year Landmark & 5-year Landmark \\
+Index & 1-year & 3-year & 5-year \\
 \midrule
 PNI   & 0.91 (0.73--1.13, p=0.380) & 0.85 (0.66--1.10, p=0.210) & 0.81 (0.60--1.09, p=0.170) \\
 CONUT & 0.75 (0.63--0.89, p$<$0.001) & 0.71 (0.58--0.88, p=0.002) & 0.74 (0.57--0.96, p=0.021) \\
-GNRI  & 0.70 (0.59--0.84, p$<$0.001) & 0.70 (0.57--0.86, p$<$0.001) & 0.70 (0.56--0.89, p=0.003) \\
+GNRI  & 0.70 (0.59--0.84, p$<$0.001) & 0.70 (0.57--0.86, p$<$0.001) & 0.70 (0.56--0.89, p=0.003) \\[2pt]
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \subsection{Optimal PNI Threshold and Dose-Response}
 
-Maximally selected log-rank statistics identified \textbf{PNI $<$ 48.5} as the optimal prognostic threshold (p$<$0.0001). Patients below this threshold had markedly shorter median survival (6.6 vs 12.8 years). RMST analysis at 10 years confirmed a clinically meaningful difference of 1.97 years between groups (95\% CI 1.19--2.76, p$<$0.001), with PAF indicating 13.4\% of deaths attributable to low PNI (95\% CI 6.2\%--20.1\%).
+Maximally selected log-rank statistics identified \textbf{PNI $<$ 48.5} as the optimal prognostic threshold (p$<$0.0001). Patients below this threshold had markedly shorter median survival (6.6 vs 12.8 years) (Figure~1B). RMST analysis at 10 years confirmed a clinically meaningful difference of 1.97 years between groups (95\% CI 1.19--2.76, p$<$0.001), with PAF indicating 13.4\% of deaths attributable to low PNI (95\% CI 6.2\%--20.1\%).
 
-Restricted cubic spline analysis confirmed a nonlinear relationship between PNI and mortality risk (nonlinearity p$<$0.0001), with sharp risk increase below approximately 45 and a plateau above 50. In contrast, CONUT and GNRI showed linear dose-response relationships (nonlinearity p=0.110 and p=0.160, respectively).
+Restricted cubic spline analysis confirmed a nonlinear relationship between PNI and mortality risk (nonlinearity p$<$0.0001), with sharp risk increase below approximately 45 and a plateau above 50 (Figure~4). In contrast, CONUT and GNRI showed linear dose-response relationships (nonlinearity p=0.110 and p=0.160, respectively).
 
 \subsection{Competing Risks Analysis}
 
-Cause-specific Cox models revealed divergent patterns. PNI primarily protected against non-cancer death (HR 0.63, 95\% CI 0.48--0.83, p=0.001) rather than GI cancer-specific death (HR 1.06, 95\% CI 0.78--1.45, p=0.700). CONUT and GNRI showed protective effects against both cancer-specific and non-cancer death (Table~5).
+Cause-specific Cox models revealed divergent patterns (Figure~2B). PNI primarily protected against non-cancer death (HR 0.63, 95\% CI 0.48--0.83, p=0.001) rather than GI cancer-specific death (HR 1.06, 95\% CI 0.78--1.45, p=0.700). CONUT and GNRI showed protective effects against both cancer-specific and non-cancer death (Table~5).
 
 \begin{table}[h]
 \caption{Competing risks---cause-specific HR per 1-SD.}
@@ -226,7 +228,7 @@ Among 99 GI cancer patients with dietary data, HEI-2015 did not predict mortalit
 
 \subsection{Subgroup and Sensitivity Analyses}
 
-PNI showed directionally consistent protective effects across all examined subgroups, with no significant effect modification by age (interaction p=0.730), sex (p=0.340), or BMI (p=0.680). Bootstrap C-statistic (500 replications) showed GNRI had the largest $\Delta$C-stat (+0.034), followed by CONUT (+0.023) and PNI (+0.022). Survey-weighted Cox (2005--2016 subset) attenuated PNI (HR 0.87, p=0.430) while CONUT remained significant (HR 0.76, p=0.003). E-values ranged from 1.66 (PNI) to 1.97 (GNRI), indicating moderate robustness to unmeasured confounding.
+PNI showed directionally consistent protective effects across all examined subgroups, with no significant effect modification by age (interaction p=0.730), sex (p=0.340), or BMI (p=0.680) (Figure~6). Bootstrap C-statistic (500 replications) showed GNRI had the largest $\Delta$C-stat (+0.034), followed by CONUT (+0.023) and PNI (+0.022). Survey-weighted Cox (2005--2016 subset) attenuated PNI (HR 0.87, p=0.430) while CONUT remained significant (HR 0.76, p=0.003). E-values ranged from 1.66 (PNI) to 1.97 (GNRI), indicating moderate robustness to unmeasured confounding.
 
 \subsection{Cohort Consistency and Extended Sensitivity Analyses}
 
@@ -242,7 +244,7 @@ In the primary analysis family of six tests (three indices $\times$ crude/adjust
 
 \subsection{PNI Decomposition: Albumin vs.\ Composite Index}
 
-Formal comparison of PNI against its individual components confirmed that the prognostic value was driven entirely by serum albumin. Albumin alone achieved a lower AIC (1595.8 vs.\ 1607.8) and larger bootstrap C-statistic improvement ($\Delta$C-stat +0.032, 95\% CI 0.010--0.063) than the composite PNI ($\Delta$C-stat +0.022, 95\% CI $-$0.001--0.051). Lymphocyte count alone provided negligible discrimination ($\Delta$C-stat +0.002, 95\% CI $-$0.007--0.014). A likelihood ratio test confirmed that adding lymphocyte count to an albumin-only model did not improve fit (p=0.460), indicating that lymphocyte count contributes no independent prognostic information beyond albumin in this population.
+Formal comparison of PNI against its individual components confirmed that the prognostic value was driven entirely by serum albumin (Figure~5B). Albumin alone achieved a lower AIC (1595.8 vs.\ 1607.8) and larger bootstrap C-statistic improvement ($\Delta$C-stat +0.032, 95\% CI 0.010--0.063) than the composite PNI ($\Delta$C-stat +0.022, 95\% CI $-$0.001--0.051). Lymphocyte count alone provided negligible discrimination ($\Delta$C-stat +0.002, 95\% CI $-$0.007--0.014). A likelihood ratio test confirmed that adding lymphocyte count to an albumin-only model did not improve fit (p=0.460), indicating that lymphocyte count contributes no independent prognostic information beyond albumin in this population.
 
 %=============================================================================
 \section{Discussion}
