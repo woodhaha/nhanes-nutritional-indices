@@ -131,7 +131,57 @@ All analyses were conducted using R 4.6.0 with the \texttt{survey}, \texttt{surv
 
 Of 44,066 eligible participants aged $\ge$18, 313 (0.7\%) had a GI cancer diagnosis, comprising 92 from NHANES III and 221 from Continuous NHANES. Colorectal cancer was the most common (n=241, 77.0\%), followed by liver (n=23, 7.3\%), stomach (n=19, 6.1\%), esophageal (n=15, 4.8\%), pancreatic (n=8, 2.6\%), and gallbladder (n=6, 1.9\%). The remaining cases were rectal (n=8). GI cancer patients were substantially older than the general population (67.5 vs 45.5 years) and had lower PNI (50.8 vs 53.2), indicating worse nutritional status. During a median follow-up of 8.8 years (up to 31 years), 169 deaths (54.0\%) occurred among GI cancer patients.
 
-Table~1 summarizes baseline characteristics by GI tumor status, and Table~2 shows characteristics by PNI tertile among GI cancer patients. Patients in the lowest PNI tertile had substantially higher mortality (70.5\%) compared to the middle (46.2\%) and highest (45.2\%) tertiles, with median survival of 6.5, 12.5, and 13.9 years, respectively (Figure~1A).
+Table~1 summarizes baseline characteristics by GI tumor status, and Table~2 shows characteristics by PNI tertile among GI cancer patients.
+
+\begin{table}[htbp]
+\caption{Baseline characteristics by GI tumor status (NHANES III + Continuous NHANES 2005--2016).}
+\label{tab:baseline}
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+Variable & GI Tumor (n=313) & Non-Cancer (n=40,480) \\
+\midrule
+Age, years & $67.5\pm13.8$ & $45.5\pm18.4$ \\
+Female (\%) & 64 (20.4) & 7,172 (17.7) \\
+Non-Hispanic White (\%) & 160 (51.1) & 14,887 (36.8) \\
+Education $\ge$ high school (\%) & 187 (59.7) & 25,808 (63.8) \\
+BMI, kg/m$^2$ & $28.5\pm6.1$ & $28.3\pm6.6$ \\
+Albumin, g/dL & $4.1\pm0.4$ & $4.2\pm0.4$ \\
+Lymphocyte, $\mu$L$^{-1}$ & $1,972\pm990$ & $2,209\pm719$ \\
+Total cholesterol, mg/dL & $195\pm44$ & $196\pm43$ \\
+PNI & $50.8\pm6.5$ & $53.2\pm5.2$ \\
+CONUT & $1.1\pm1.4$ & $0.7\pm1.0$ \\
+GNRI & $115.0\pm12.2$ & $116.4\pm12.4$ \\
+Deaths (\%) & 169 (54.0) & 7,659 (18.9) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\caption{Baseline characteristics by PNI tertile among GI cancer patients.}
+\label{tab:pni_tertile}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+Variable & Low PNI (T1) & Mid PNI (T2) & High PNI (T3) \\
+\midrule
+N & 105 & 104 & 104 \\
+Age, years & $72.6\pm9.4$ & $66.4\pm15.5$ & $63.6\pm13.8$ \\
+Female (\%) & 15 (14.3) & 26 (25.0) & 23 (22.1) \\
+PNI & $44.8\pm3.5$ & $50.5\pm1.4$ & $57.5\pm4.1$ \\
+CONUT & $2.1\pm1.7$ & $0.9\pm0.9$ & $0.3\pm0.5$ \\
+GNRI & $110.2\pm12.6$ & $115.5\pm10.4$ & $119.5\pm11.7$ \\
+Albumin, g/dL & $3.8\pm0.4$ & $4.1\pm0.3$ & $4.4\pm0.3$ \\
+Lymphocyte, $\mu$L$^{-1}$ & $1,376\pm389$ & $1,820\pm516$ & $2,739\pm1,049$ \\
+Total cholesterol, mg/dL & $184\pm45$ & $196\pm41$ & $205\pm43$ \\
+BMI, kg/m$^2$ & $28.3\pm6.1$ & $28.5\pm5.6$ & $28.7\pm6.6$ \\
+Deaths (\%) & 74 (70.5) & 48 (46.2) & 47 (45.2) \\
+Median survival & 5.5 yr & 7.8 yr & 13.9 yr \\
+\bottomrule
+\end{tabular}
+\end{table} Patients in the lowest PNI tertile had substantially higher mortality (70.5\%) compared to the middle (46.2\%) and highest (45.2\%) tertiles, with median survival of 5.5, 7.8, and 13.9 years, respectively (Figure~1A).
 
 \subsection{All-Cause Mortality}
 
@@ -197,18 +247,14 @@ Cause-specific Cox models revealed divergent patterns (Figure~2B). PNI primarily
 \toprule
 Index & GI Cancer Death & Non-Cancer Death \\
 \midrule
-PNI   & 1.06 (0.78--1.45, p=0.700)    & 0.63 (0.48--0.83, p$<$0.001) \\
+PNI   & 1.06 (0.78--1.45, p=0.700)    & 0.63 (0.48--0.83, p=0.001) \\
 CONUT & 0.73 (0.56--0.94, p=0.016)  & 0.70 (0.58--0.85, p$<$0.001) \\
 GNRI  & 0.69 (0.51--0.94, p=0.017)  & 0.66 (0.53--0.82, p$<$0.001) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Fine-Gray subdistribution hazard models~\cite{finegray1999} confirmed these patterns. For GI cancer death, no index reached statistical significance (PNI sHR 1.16, 95\% CI 0.77--1.75, p=0.490; CONUT sHR 0.82, 95\% CI 0.59--1.14, p=0.240; GNRI sHR 0.79, 95\% CI 0.58--1.07, p=0.120). For non-cancer death, GNRI remained significant (sHR 0.80, 95\% CI 0.64--0.99, p=0.039) and PNI was borderline (sHR 0.81, 95\% CI 0.66--1.00, p=0.050).
-
-\subsection{PNI Decomposition}
-
-Albumin alone was significantly associated with mortality (HR 0.69 per 1-SD, 95\% CI 0.58--0.82, p$<$0.001), while lymphocyte count alone was not (HR 1.06, 95\% CI 0.88--1.28, p=0.540). These findings are consistent with prior systematic reviews demonstrating that low serum albumin is a robust predictor of cancer mortality across multiple tumor types~\cite{gupta2010,tang2024}. C-statistic improvement over baseline was +0.033 for albumin, +0.023 for PNI, and 0.000 for lymphocyte, confirming that \textbf{serum albumin is the primary driver} of PNI's prognostic value.
+For GI cancer death, Fine-Gray subdistribution hazard models showed no index reaching statistical significance (PNI sHR 1.16, 95\% CI 0.77--1.75, p=0.490; CONUT sHR 0.82, 95\% CI 0.59--1.14, p=0.240; GNRI sHR 0.79, 95\% CI 0.58--1.07, p=0.120). For non-cancer death, GNRI remained significant (sHR 0.80, 95\% CI 0.64--0.99, p=0.039) and PNI was borderline (sHR 0.81, 95\% CI 0.66--1.00, p=0.050).
 
 \subsection{PNI vs Inflammatory Markers}
 
@@ -242,7 +288,7 @@ In sensitivity analyses excluding deaths within 2 years (n=284, 140 events), PNI
 
 In the primary analysis family of six tests (three indices $\times$ crude/adjusted models), the Bonferroni-corrected significance threshold was $\alpha=0.0083$. PNI adjusted (p=0.020) did not survive this correction, while CONUT and GNRI adjusted (both p$<$0.001) and all crude models (all p$<$0.001) remained significant. These results are therefore reported as primary analyses for CONUT and GNRI, with PNI interpreted as a secondary finding requiring replication.
 
-\subsection{PNI Decomposition: Albumin vs.\ Composite Index}
+\subsection{PNI Decomposition}
 
 Formal comparison of PNI against its individual components confirmed that the prognostic value was driven entirely by serum albumin (Figure~5B). Albumin alone achieved a lower AIC (1595.8 vs.\ 1607.8) and larger bootstrap C-statistic improvement ($\Delta$C-stat +0.032, 95\% CI 0.010--0.063) than the composite PNI ($\Delta$C-stat +0.022, 95\% CI $-$0.001--0.051). Lymphocyte count alone provided negligible discrimination ($\Delta$C-stat +0.002, 95\% CI $-$0.007--0.014). A likelihood ratio test confirmed that adding lymphocyte count to an albumin-only model did not improve fit (p=0.460), indicating that lymphocyte count contributes no independent prognostic information beyond albumin in this population.
 
@@ -270,7 +316,7 @@ In the context of current consensus frameworks, PNI and CONUT may be positioned 
 
 Inflammatory markers NLR and SII showed comparable prognostic performance to PNI (+0.017 C-statistic improvement for both). The mutually adjusted model, in which neither PNI nor NLR remained significant, indicates substantial overlap between nutritional and inflammatory signaling pathways. The joint exposure analysis (Low PNI + High NLR, HR 1.67, 95\% CI 1.06--2.63; RERI $-$0.97) suggests that combined assessment identifies the highest-risk patients, though the negative RERI indicates overlapping rather than synergistic pathways.
 
-	Notably, the absence of PNI $\times$ CRP interaction (p=0.780) and the non-significant CALLY index finding (HR 0.85, p=0.200) indicate that PNI's prognostic value extends beyond what can be explained by systemic inflammation measured through single biomarkers. The null dietary finding (HEI-2015 HR 0.97, p=0.850), though limited by reliance on a single 24-hour dietary recall rather than usual intake estimates, reinforces the conceptual distinction between biochemical nutritional status---reflecting metabolic reserve and systemic inflammation---and dietary intake patterns, which may be less relevant in the post-diagnosis period when metabolic alterations dominate.
+Notably, the absence of PNI $\times$ CRP interaction (p=0.780) and the non-significant CALLY index finding (HR 0.85, p=0.200) indicate that PNI's prognostic value extends beyond what can be explained by systemic inflammation measured through single biomarkers. The null dietary finding (HEI-2015 HR 0.97, p=0.850), though limited by reliance on a single 24-hour dietary recall rather than usual intake estimates, reinforces the conceptual distinction between biochemical nutritional status---reflecting metabolic reserve and systemic inflammation---and dietary intake patterns, which may be less relevant in the post-diagnosis period when metabolic alterations dominate.
 
 \subsection{Comparison with Previous Literature}
 
