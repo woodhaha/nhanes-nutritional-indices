@@ -1,0 +1,194 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{muscaritoli2021}
+M.~Muscaritoli, J.~Arends, P.~Bachmann, et~al., {ESPEN} practical guideline:
+  {C}linical {N}utrition in cancer, Clinical Nutrition 40~(5) (2021)
+  2898--2913.
+\newblock \href {https://doi.org/10.1016/j.clnu.2021.02.005}
+  {\path{doi:10.1016/j.clnu.2021.02.005}}.
+
+\bibitem{arends2017}
+J.~Arends, P.~Bachmann, V.~Baracos, et~al., {ESPEN} guidelines on nutrition in
+  cancer patients, Clinical Nutrition 36~(1) (2017) 11--48.
+\newblock \href {https://doi.org/10.1016/j.clnu.2016.07.015}
+  {\path{doi:10.1016/j.clnu.2016.07.015}}.
+
+\bibitem{fearon2011}
+K.~Fearon, F.~Strasser, S.~D. Anker, et~al., Definition and classification of
+  cancer cachexia: an international consensus, The Lancet Oncology 12~(5)
+  (2011) 489--495.
+\newblock \href {https://doi.org/10.1016/S1470-2045(10)70218-7}
+  {\path{doi:10.1016/S1470-2045(10)70218-7}}.
+
+\bibitem{hebuterne2014}
+X.~H{\'e}buterne, E.~Lemari{\'e}, M.~Michallet, et~al., Prevalence of
+  malnutrition and current use of nutrition support in patients with cancer,
+  Journal of Parenteral and Enteral Nutrition 38~(2) (2014) 196--204.
+\newblock \href {https://doi.org/10.1177/0148607113502674}
+  {\path{doi:10.1177/0148607113502674}}.
+
+\bibitem{pressoir2010}
+M.~Pressoir, S.~Desn{\'e}, D.~Berchery, et~al., Prevalence, risk factors and
+  clinical implications of malnutrition in {F}rench {C}omprehensive {C}ancer
+  {C}entres, British Journal of Cancer 102~(6) (2010) 966--971.
+\newblock \href {https://doi.org/10.1038/sj.bjc.6605578}
+  {\path{doi:10.1038/sj.bjc.6605578}}.
+
+\bibitem{onodera1984}
+T.~Onodera, N.~Goseki, G.~Kosaki, Prognostic nutritional index in
+  gastrointestinal surgery of malnourished cancer patients, Nihon Geka Gakkai
+  Zasshi 85~(9) (1984) 1001--1005.
+
+\bibitem{ignacio2005}
+J.~Ignacio~de Ul{\'i}barri, A.~Gonz{\'a}lez-Madro{\~n}o, N.~G. de~Villar,
+  et~al., {CONUT}: a tool for controlling nutritional status. {F}irst
+  validation in a hospital population, Nutrici{\'o}n Hospitalaria 20~(1) (2005)
+  38--45.
+
+\bibitem{bouillanne2005}
+O.~Bouillanne, G.~Morineau, C.~Dupont, et~al., Geriatric {N}utritional {R}isk
+  {I}ndex: a new index for evaluating at-risk elderly medical patients, The
+  American Journal of Clinical Nutrition 82~(4) (2005) 777--783.
+\newblock \href {https://doi.org/10.1093/ajcn/82.4.777}
+  {\path{doi:10.1093/ajcn/82.4.777}}.
+
+\bibitem{yang2016}
+Y.~Yang, P.~Gao, Y.~Song, et~al., The prognostic nutritional index is a
+  predictive indicator of prognosis and postoperative complications in gastric
+  cancer: a meta-analysis, European Journal of Surgical Oncology 42~(8) (2016)
+  1176--1182.
+\newblock \href {https://doi.org/10.1016/j.ejso.2016.05.029}
+  {\path{doi:10.1016/j.ejso.2016.05.029}}.
+
+\bibitem{sun2014}
+K.~Sun, S.~Chen, J.~Xu, et~al., The prognostic significance of the prognostic
+  nutritional index in cancer: a systematic review and meta-analysis, Journal
+  of Cancer Research and Clinical Oncology 140~(9) (2014) 1537--1549.
+\newblock \href {https://doi.org/10.1007/s00432-014-1714-3}
+  {\path{doi:10.1007/s00432-014-1714-3}}.
+
+\bibitem{pinato2012}
+D.~J. Pinato, B.~V. North, R.~Sharma, A novel, externally validated
+  inflammation-based prognostic algorithm in hepatocellular carcinoma: the
+  prognostic nutritional index ({PNI}), British Journal of Cancer 106~(8)
+  (2012) 1439--1445.
+\newblock \href {https://doi.org/10.1038/bjc.2012.92}
+  {\path{doi:10.1038/bjc.2012.92}}.
+
+\bibitem{migita2013}
+K.~Migita, T.~Takayama, K.~Saeki, et~al., The prognostic nutritional index
+  predicts long-term outcomes of gastric cancer patients independent of tumor
+  stage, Annals of Surgical Oncology 20~(8) (2013) 2647--2654.
+\newblock \href {https://doi.org/10.1245/s10434-013-2926-5}
+  {\path{doi:10.1245/s10434-013-2926-5}}.
+
+\bibitem{nozoe2012}
+T.~Nozoe, M.~Kohno, T.~Iguchi, et~al., The prognostic nutritional index can be
+  a prognostic indicator in colorectal carcinoma, Surgery Today 42~(6) (2012)
+  532--535.
+\newblock \href {https://doi.org/10.1007/s00595-011-0061-0}
+  {\path{doi:10.1007/s00595-011-0061-0}}.
+
+\bibitem{kanda2011}
+M.~Kanda, T.~Fujii, Y.~Kodera, et~al., Nutritional predictors of postoperative
+  outcome in pancreatic cancer, British Journal of Surgery 98~(2) (2011)
+  268--274.
+\newblock \href {https://doi.org/10.1002/bjs.7305}
+  {\path{doi:10.1002/bjs.7305}}.
+
+\bibitem{han2022}
+K.~Han, I.~Jung, J.~H. Kim, et~al., Restricted mean survival time for survival
+  analysis: a quick guide for clinicians, Korean Journal of Radiology 23~(6)
+  (2022) 561--568.
+\newblock \href {https://doi.org/10.3348/kjr.2022.0061}
+  {\path{doi:10.3348/kjr.2022.0061}}.
+
+\bibitem{royston2013}
+P.~Royston, M.~K. Parmar, Restricted mean survival time: an alternative to the
+  hazard ratio for the design and analysis of randomized trials with a
+  time-to-event outcome, BMC Medical Research Methodology 13 (2013) 152.
+\newblock \href {https://doi.org/10.1186/1471-2288-13-152}
+  {\path{doi:10.1186/1471-2288-13-152}}.
+
+\bibitem{putter2007}
+H.~Putter, M.~Fiocco, R.~B. Geskus, Tutorial in biostatistics: competing risks
+  and multi-state models, Statistics in Medicine 26~(11) (2007) 2389--2430.
+\newblock \href {https://doi.org/10.1002/sim.2712}
+  {\path{doi:10.1002/sim.2712}}.
+
+\bibitem{andersen2012}
+P.~K. Andersen, R.~B. Geskus, T.~de~Witte, et~al., Competing risks in
+  epidemiology: possibilities and pitfalls, International Journal of
+  Epidemiology 41~(3) (2012) 861--870.
+\newblock \href {https://doi.org/10.1093/ije/dyr213}
+  {\path{doi:10.1093/ije/dyr213}}.
+
+\bibitem{finegray1999}
+J.~P. Fine, R.~J. Gray, A proportional hazards model for the subdistribution of
+  a competing risk, Journal of the American Statistical Association 94~(446)
+  (1999) 496--509.
+\newblock \href {https://doi.org/10.1080/01621459.1999.10474144}
+  {\path{doi:10.1080/01621459.1999.10474144}}.
+
+\bibitem{rockhill1998}
+B.~Rockhill, B.~Newman, C.~Weinberg, Use and misuse of population attributable
+  fractions, American Journal of Public Health 88~(1) (1998) 15--19.
+\newblock \href {https://doi.org/10.2105/AJPH.88.1.15}
+  {\path{doi:10.2105/AJPH.88.1.15}}.
+
+\bibitem{vanderweele2017}
+T.~J. VanderWeele, P.~Ding, Sensitivity analysis in observational research:
+  introducing the {E}-value, Annals of Internal Medicine 167~(4) (2017)
+  268--274.
+\newblock \href {https://doi.org/10.7326/M16-2607}
+  {\path{doi:10.7326/M16-2607}}.
+
+\bibitem{gupta2010}
+D.~Gupta, C.~G. Lis, Pretreatment serum albumin as a predictor of cancer
+  survival: a systematic review of the epidemiological literature, Nutrition
+  Journal 9 (2010) 69.
+\newblock \href {https://doi.org/10.1186/1475-2891-9-69}
+  {\path{doi:10.1186/1475-2891-9-69}}.
+
+\bibitem{tang2024}
+Q.~Tang, Q.~Liu, Y.~Zhou, et~al., Predictive value of serum albumin levels on
+  cancer survival: a prospective cohort study, Frontiers in Oncology 14 (2024)
+  1323192.
+\newblock \href {https://doi.org/10.3389/fonc.2024.1323192}
+  {\path{doi:10.3389/fonc.2024.1323192}}.
+
+\bibitem{templeton2014}
+A.~J. Templeton, M.~G. McNamara, B.~{\v{S}}eruga, et~al., Prognostic role of
+  neutrophil-to-lymphocyte ratio in solid tumors: a systematic review and
+  meta-analysis, Journal of the National Cancer Institute 106~(6) (2014)
+  dju124.
+\newblock \href {https://doi.org/10.1093/jnci/dju124}
+  {\path{doi:10.1093/jnci/dju124}}.
+
+\bibitem{yangm2023}
+M.~Yang, S.~Q. Lin, X.~Y. Liu, et~al., Association between {C}-reactive
+  protein-albumin-lymphocyte ({CALLY}) index and overall survival in patients
+  with colorectal cancer, Frontiers in Immunology 14 (2023) 1131496.
+\newblock \href {https://doi.org/10.3389/fimmu.2023.1131496}
+  {\path{doi:10.3389/fimmu.2023.1131496}}.
+
+\bibitem{lee2017}
+J.~Y. Lee, H.~I. Kim, Y.~N. Kim, et~al., Clinical significance of the
+  prognostic nutritional index in predicting postoperative gastric cancer
+  survival, Journal of Gastric Cancer 17~(2) (2017) 139--150.
+\newblock \href {https://doi.org/10.5230/jgc.2017.17.e16}
+  {\path{doi:10.5230/jgc.2017.17.e16}}.
+
+\bibitem{zhao2024}
+L.~Zhao, X.~Zhang, Y.~Li, et~al., Association of prognostic nutritional index
+  with mortalities in {A}merican cancer survivors: a retrospective study, Food
+  Science \& Nutrition 12~(4) (2024) 2880--2893.
+\newblock \href {https://doi.org/10.1002/fsn3.3877}
+  {\path{doi:10.1002/fsn3.3877}}.
+
+\end{thebibliography}
