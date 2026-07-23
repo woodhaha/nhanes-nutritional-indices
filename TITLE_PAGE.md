@@ -27,7 +27,7 @@ Email: zhouzhuha@wmu.edu.cn
 ## Manuscript Notes
 
 - **Word count:** [~4,500 words]
-- **Number of figures:** 10
+- **Number of figures:** 6 (main text) + 3 (supplementary)
 - **Number of tables:** 3 (main text)
 - **Supplementary materials:** 7 tables, 5 figures
 - **References:** 27
