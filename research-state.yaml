@@ -1,0 +1,74 @@
+project:
+  name: NHANES Nutrition + Cognition + Depression
+  question: >
+    In US adults ≥60, what is the association between multi-index nutritional status
+    (DII/PNI/CONUT/GNRI) and cognitive function, and does depression mediate this relationship?
+  status: inner_loop
+  completed_arms:
+    gi_cancer: true
+    cognition_baseline: true
+
+literature:
+  status: complete
+  papers_reviewed: 21
+  key_gap_confirmed: true
+
+hypotheses:
+  - id: H1
+    label: "All 4 indices independently predict cognitive function"
+    status: partially_supported
+    protocol_locked: true
+    result: "CONUT strongest (β=0.052, p=0.001), then E-DII (β=0.040, p=0.034). PNI and GNRI trends only."
+    metric: "Standardized β in Model 3"
+
+  - id: H2
+    label: "Depression mediates nutrition-cognition"
+    status: refuted  # For DII
+    protocol_locked: true
+    result: "DII→PHQ9 a=-0.132 (p=0.127, NS). Indirect effect 0.002. Proportion mediated -6.8%."
+    metric: "Indirect effect proportion via lavaan SEM"
+    note: "Only tested for E-DII. PNI/CONUT/GNRI mediation not yet tested."
+
+  - id: H3
+    label: "PNI outperforms DII (objective vs dietary)"
+    status: inconclusive
+    protocol_locked: true
+    result: "CONUT strongest (objective), but PNI/GNRI not significant. Mixed support."
+
+  - id: H4
+    label: "Food security modifies nutrition→cognition"
+    status: inconclusive
+    protocol_locked: true
+    result: "Similar β in both groups but food insecure N=284 → insufficient power."
+
+  - id: H5
+    label: "Associations robust to CKD stratification"
+    status: untested
+    protocol_locked: false
+    note: "Need eGFR data — requires creatinine (LBXSCR) not yet merged."
+
+  - id: H6
+    label: "Multi-index composite outperforms individual indices"
+    status: untested
+    protocol_locked: false
+    note: "New hypothesis from outer loop reflection — combine CONUT+E-DII into composite."
+
+inner_loop:
+  experiments_completed: 1
+  current_focus: "Outer loop reflection — direction decision"
+  trajectory:
+    - experiment: "Baseline analysis — all 4 indices → cognitive function"
+      result: "CONUT > E-DII > PNI ≈ GNRI"
+      metric_value: "CONUT β=0.052, E-DII β=0.040"
+      baseline: "null"
+      delta: "N/A (first run)"
+      wall_time_min: 15
+
+outer_loop:
+  last_reflection: "2026-07-24 — Inner loop 1 complete"
+  direction: broaden
+  rationale: >
+    Baseline results obtained. H2 refuted for DII. H1 partially supported.
+    Next directions: (1) test depression mediation for PNI/CONUT/GNRI,
+    (2) build multi-index composite score. Consider broadening to
+    negative results paper on DII→depression→cognition null mediation.

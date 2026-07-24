@@ -110,18 +110,14 @@ if (exists("pred_df") && nrow(pred_df) > 0) {
     # Ruq (sample distribution)
     geom_rug(data = rug_data, aes(x = E_DII_raw),
              sides = "b", alpha = 0.1, color = "grey40") +
-    # Knot locations
-    geom_vline(xintercept = knots, linetype = "dotted", color = "#D62728",
-               alpha = 0.5, linewidth = 0.5) +
     labs(
       title = "Dose-Response: Dietary Inflammatory Index & Cognitive Function",
-      subtitle = sprintf("Restricted cubic spline (3 knots at 10th, 50th, 90th %ile)
-      Non-linearity p = %.4f", nonlin_p),
+      subtitle = "Natural spline (3 df) dose-response",
       x = "Energy-Adjusted Dietary Inflammatory Index (E-DII)",
       y = "Predicted Cognitive Composite Z-score",
       caption = "Adjusted for: age, sex, race/ethnicity, education, income, BMI,
       smoking, alcohol, physical activity, comorbidities, CRP\n
-      Red dotted lines = knot locations | Shaded band = 95% CI\n
+      Shaded band = 95% CI\n
       More negative DII = anti-inflammatory diet | More positive = pro-inflammatory"
     ) +
     annotate("text", x = -2, y = max(pred_df$y_upper, na.rm = TRUE) * 0.9,

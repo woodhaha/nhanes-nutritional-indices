@@ -158,7 +158,7 @@ cat_table1 <- function(var, design_obj, group_var = "pni_tertile") {
       }
     }
 
-    result <- do.call(rbind, result_list)
+    result <- dplyr::bind_rows(result_list)
     result$p_value <- c(p_val, rep(NA_real_, nrow(result) - 1))
     return(result)
   }
@@ -168,7 +168,7 @@ table1_list <- lapply(table1_vars, function(v) {
   tryCatch(cat_table1(v, design_cc), error = function(e) NULL)
 })
 
-table1 <- do.call(rbind, Filter(Negate(is.null), table1_list))
+table1 <- dplyr::bind_rows(Filter(Negate(is.null), table1_list))
 write.csv(table1, file.path(RESULTS_DIR, "table1_baseline.csv"), row.names = FALSE)
 
 cat(sprintf("Table 1 saved: %d variables, %d rows\n",
@@ -326,11 +326,10 @@ design_cc <- svydesign(
   nest = TRUE, data = df_cc
 )
 
-# Hmisc rcs with 3 knots
-knots <- quantile(df_cc$E_DII_raw, probs = c(0.10, 0.50, 0.90), na.rm = TRUE)
-
+# Natural splines (ns) in formula — compatible with svyglm
+# ponytail: ns() works inline in svyglm, rcs() creates matrix cols that don't
 rcs_form <- as.formula(
-  paste("cog_z_composite ~ rcs(E_DII_raw, parms = knots) +",
+  paste("cog_z_composite ~ splines::ns(E_DII_raw, df = 3) +",
         paste(covars_m3, collapse = " + "))
 )
 
@@ -360,11 +359,12 @@ pred_df <- data.frame(
   crp_mgdl  = median(df_cc$crp_mgdl, na.rm = TRUE)
 )
 
-preds <- predict(rcs_fit, newdata = pred_df, se.fit = TRUE)
-pred_df$y_hat   <- preds$link
-pred_df$y_se    <- preds$SE
-pred_df$y_lower <- preds$link - 1.96 * preds$SE
-pred_df$y_upper <- preds$link + 1.96 * preds$SE
+preds <- predict(rcs_fit, newdata = pred_df, se.fit = TRUE, type = "link")
+# svyglm predict returns svystat: values are fit, var attribute is SE^2
+pred_df$y_hat   <- as.numeric(preds)
+pred_df$y_se    <- sqrt(as.numeric(attr(preds, "var")))
+pred_df$y_lower <- pred_df$y_hat - 1.96 * pred_df$y_se
+pred_df$y_upper <- pred_df$y_hat + 1.96 * pred_df$y_se
 
 # ── Non-linearity test ────────────────────────────────────────────────────────
 # Compare to linear model

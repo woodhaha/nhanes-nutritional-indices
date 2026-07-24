@@ -41,17 +41,17 @@ DEMO_VARS <- c("SEQN", "SDDSRVYR", "RIDAGEYR", "RIAGENDR", "RIDRETH1",
 DIET_VARS <- c("SEQN", "DR1TKCAL", "DR1TPROT", "DR1TCARB", "DR1TTFAT",
                "DR1TSFAT", "DR1TMFAT", "DR1TPFAT", "DR1TFIBE", "DR1TCHOL",
                "DR1TVB1", "DR1TVB2", "DR1TNIAC", "DR1TVB6", "DR1TFOLA",
-               "DR1TVB12", "DR1TVC", "DR1TVD", "DR1TVE", "DR1TVK",
+               "DR1TVB12", "DR1TVC", "DR1TVD", "DR1TATOC", "DR1TVK",
                "DR1TCALC", "DR1TIRON", "DR1TMAGN", "DR1TZINC", "DR1TSELE",
                "DR1TSODI", "DR1TPOTA", "DR1TCAFF", "DR1TALCO",
                "DR1TN3", "DR1TN6", "DR1TVARA", "DR1TBETA", "DR1TLYCO",
                "DR1TSUGR", "DR1TFA")
 
-PHQ9_VARS <- c("SEQN", paste0("DPQ0", sprintf("%02d", 10:19)))
+PHQ9_VARS <- c("SEQN", paste0("DPQ0", seq(10, 90, by = 10)))
 
 CFQ_VARS <- c("SEQN", "CFD_WL_IMM", "CFD_WL_DEL", "CFD_AFT", "CFD_DSST")
 
-BIOPRO_VARS <- c("SEQN", "LBDSALSI", "LBDSCRPSI")
+BIOPRO_VARS <- c("SEQN", "LBDSALSI", "LBDSCRSI")
 
 CBC_VARS <- c("SEQN", "LBXWBCSI", "LBXLYPCT", "LBXNEPCT", "LBXRBCSI")
 
@@ -76,7 +76,7 @@ PAQ_VARS <- c("SEQN", "PAQ605", "PAQ610", "PAD615", "PAQ620", "PAQ625",
               "PAD630", "PAQ635", "PAQ640", "PAD645", "PAQ650", "PAQ655",
               "PAD660", "PAQ665", "PAQ670", "PAD675")
 
-BIOPRO_F_VARS <- c("SEQN", "LBDSCRPSI")
+BIOPRO_F_VARS <- c("SEQN", "LBDSCRSI")
 
 # ── ggplot2 theme ──────────────────────────────────────────────────────────────
 theme_nhanes <- function(base_size = 12) {

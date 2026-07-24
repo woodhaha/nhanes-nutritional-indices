@@ -138,7 +138,7 @@ derive_cycle_variables <- function(raw_list, cycle) {
   # ── PHQ-9 Depression (DPQ) ──────────────────────────────────────────────
   # DPQ010-DPQ090: "Not at all"=0 to "Nearly every day"=3
   if (!is.null(raw_list$DPQ)) {
-    phq9_cols <- paste0("DPQ0", sprintf("%02d", 10:19))
+    phq9_cols <- paste0("DPQ0", seq(10, 90, by = 10))
     phq9_available <- intersect(phq9_cols, names(raw_list$DPQ))
 
     if (length(phq9_available) >= 8) {
@@ -170,14 +170,18 @@ derive_cycle_variables <- function(raw_list, cycle) {
   }
 
   # ── Cognitive Function (CFQ) ─────────────────────────────────────────────
+  # NHANES 2011-2014 CFQ variable names:
+  # CFDCST1/2/3 = CERAD immediate recall trials (0-10 each)
+  # CFDCSR = CERAD delayed recall sum (0-10)
+  # CFDAST = Animal Fluency Test
+  # CFDDS = Digit Symbol Substitution Test
   if (!is.null(raw_list$CFQ)) {
     cfq_df <- raw_list$CFQ %>%
-      dplyr::select(SEQN, CFD_WL_IMM, CFD_WL_DEL, CFD_AFT, CFD_DSST) %>%
       mutate(
-        cerad_imm  = as.numeric(CFD_WL_IMM),    # immediate recall, 0-30
-        cerad_del  = as.numeric(CFD_WL_DEL),    # delayed recall, 0-10
-        animal_flu = as.numeric(CFD_AFT),       # animal fluency
-        dsst       = as.numeric(CFD_DSST)       # digit symbol substitution
+        cerad_imm  = as.numeric(CFDCST1) + as.numeric(CFDCST2) + as.numeric(CFDCST3),
+        cerad_del  = as.numeric(CFDCSR),
+        animal_flu = as.numeric(CFDAST),
+        dsst       = as.numeric(CFDDS)
       ) %>%
       dplyr::select(SEQN, cerad_imm, cerad_del, animal_flu, dsst)
 
@@ -213,7 +217,7 @@ derive_cycle_variables <- function(raw_list, cycle) {
   if (!is.null(raw_list$BIOPRO)) {
     df <- df %>%
       left_join(raw_list$BIOPRO %>%
-                dplyr::select(SEQN, albumin_gdl = LBDSALSI, crp_mgdl = LBDSCRPSI) %>%
+                dplyr::select(SEQN, albumin_gdl = LBDSALSI, crp_mgdl = LBDSCRSI) %>%
                 mutate(
                   albumin_gdl = as.numeric(albumin_gdl),
                   crp_mgdl    = as.numeric(crp_mgdl)
@@ -288,15 +292,15 @@ derive_cycle_variables <- function(raw_list, cycle) {
   if (!is.null(raw_list$ALQ)) {
     df <- df %>%
       left_join(raw_list$ALQ %>%
-                dplyr::select(SEQN, ALQ111, ALQ121, ALQ130) %>%
+                dplyr::select(SEQN, ALQ101, ALQ130) %>%
                 mutate(
-                  alc_ever    = as.numeric(ALQ111),
-                  alc_freq_yr = as.numeric(ALQ121),
+                  alc_ever    = as.numeric(ALQ101),
                   alc_avg_drinks = as.numeric(ALQ130),
+                  # ponytail: ALQ101=2 never, ALQ101=1 + ALQ130>0 current, else former
                   alcohol = case_when(
-                    ALQ111 == 2 ~ "Never",
-                    ALQ121 >= 2 & ALQ121 <= 6 ~ "Current",
-                    ALQ121 == 1 ~ "Former",
+                    ALQ101 == 2 ~ "Never",
+                    ALQ101 == 1 & ALQ130 > 0 ~ "Current",
+                    ALQ101 == 1 ~ "Former",
                     TRUE ~ NA_character_
                   )
                 ) %>%
@@ -472,7 +476,7 @@ calculate_dii <- function(diet_df) {
     "DR1TPROT", "DR1TCARB", "DR1TFIBE", "DR1TCHOL",
     "DR1TSFAT", "DR1TMFAT", "DR1TPFAT",
     "DR1TVB1", "DR1TVB2", "DR1TNIAC", "DR1TVB6", "DR1TFOLA",
-    "DR1TVB12", "DR1TVC", "DR1TVD", "DR1TVE",
+    "DR1TVB12", "DR1TVC", "DR1TVD", "DR1TATOC",
     "DR1TCALC", "DR1TIRON", "DR1TMAGN", "DR1TZINC", "DR1TSELE",
     "DR1TSODI", "DR1TPOTA"
   )
@@ -520,7 +524,7 @@ calculate_dii <- function(diet_df) {
     DR1TVB12 = c(mean = 5.1, sd = 2.3, score = -0.14),
     DR1TVC   = c(mean = 113.0, sd = 48.0, score = -0.42),
     DR1TVD   = c(mean = 5.6, sd = 3.0, score = -0.42),
-    DR1TVE   = c(mean = 8.7, sd = 3.1, score = -0.42),
+    DR1TATOC   = c(mean = 8.7, sd = 3.1, score = -0.42),
     DR1TCALC = c(mean = 842.6, sd = 265.0, score = -0.46),
     DR1TIRON = c(mean = 14.1, sd = 4.0, score = -0.16),
     DR1TMAGN = c(mean = 284.2, sd = 74.0, score = -0.48),
@@ -625,10 +629,44 @@ load_and_derive_nhanes <- function(cycles = CYCLES, use_cache = TRUE,
 # SECTION E: Execute
 # ═══════════════════════════════════════════════════════════════════════════════
 
-cat("\n── NHANES Data Loading & Variable Derivation ──\n")
+# Guard: skip if raw data already loaded (e.g., via 01a_load_local_xpt.R)
+if (!exists("raw_G", envir = .GlobalEnv) && !exists("raw_H", envir = .GlobalEnv)) {
+  cat("\n── NHANES Data Loading & Variable Derivation ──\n")
 
-# Load & derive
-df <- load_and_derive_nhanes(cycles = CYCLES, use_cache = TRUE, min_age = 60)
+  # Load & derive
+  df <- load_and_derive_nhanes(cycles = CYCLES, use_cache = TRUE, min_age = 60)
+} else {
+  cat("\n── NHANES Data already loaded; running derivation only ──\n")
+
+  # Derive from pre-loaded raw data
+  df_list <- list()
+  for (cyc in CYCLES) {
+    cycle_letter <- switch(cyc, "2011-2012" = "G", "2013-2014" = "H")
+    raw_name <- paste0("raw_", cycle_letter)
+    if (exists(raw_name, envir = .GlobalEnv)) {
+      raw_list <- get(raw_name, envir = .GlobalEnv)
+      df_list[[cyc]] <- derive_cycle_variables(raw_list, cyc)
+    }
+  }
+  df <- bind_rows(df_list)
+
+  # Apply exclusions (same as load_and_derive_nhanes)
+  df <- df %>%
+    filter(
+      age >= 60,
+      !is.na(cog_z_composite),
+      !is.na(phq9_total),
+      !is.na(albumin_gdl),
+      !is.na(bmi)
+    ) %>%
+    mutate(
+      excl_stroke  = ifelse(stroke == 1, 1, 0),
+      excl_cancer  = ifelse(cancer_hx == 1, 1, 0),
+      excl_low_alb = ifelse(albumin_gdl < 3.0, 1, 0)
+    )
+
+  cat(sprintf("Derived: N = %d participants\n", nrow(df)))
+}
 
 # Calculate DII (requires diet data)
 # Merge diet data back for DII calculation
