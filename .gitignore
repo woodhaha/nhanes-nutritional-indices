@@ -1,3 +1,4 @@
+# LaTeX build
 *.aux
 *.log
 *.bbl
@@ -6,3 +7,15 @@
 *.spl
 *.synctex.gz
 Rplots.pdf
+
+# Compiled manuscript (regenerated)
+manuscript.pdf
+supplementary.pdf
+
+# Large NHANES III raw data (CDC public — reproducible)
+data/nhanes3/
+
+# Derived data cache (reproducible from scripts)
+data/gi_analysis/*.rds
+data/gi_analysis/*.csv
+data/gi_analysis/*.RData
