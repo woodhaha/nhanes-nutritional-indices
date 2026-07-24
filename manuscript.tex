@@ -80,7 +80,7 @@ PNI was calculated as $10 \times \text{albumin} + 0.005 \times \text{lymphocyte 
 
 \subsection{Mortality and Statistical Analysis}
 
-Mortality status was ascertained through NCHS National Death Index through December 31, 2019. Cause of death was classified using UCOD\_LEADING (code 002 = malignant neoplasm). In GI cancer, cause-specific death was defined by baseline GI cancer plus UCOD=002.
+Mortality was ascertained through the NCHS National Death Index through December~31,~2019. Cause of death was classified using UCOD\_LEADING (code 002 = malignant neoplasm). In GI cancer, cause-specific death was defined by baseline GI cancer plus UCOD=002.
 
 \subsubsection{Cross-Cancer Analysis}
 
@@ -127,7 +127,7 @@ All three indices showed protective associations with notable variation by cance
 \begin{table}[t]
 \caption{Cancer-Type-Specific Hazard Ratios per 1-SD}
 \label{tab:pan_hr}
-\centering\small
+\centering\resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
 Cancer Type & Index & HR (95\% CI) & p & Bonf \\
@@ -151,8 +151,8 @@ Pooled$^\dagger$ (n=2,942, 1,135 events) & PNI & 0.78 (0.73--0.84) & $<$0.001 & 
                  & CONUT & 0.78 (0.73--0.82) & $<$0.001 & -- \\
                  & GNRI & 0.80 (0.75--0.86) & $<$0.001 & -- \\
 \bottomrule
-\end{tabular}
-\par\raggedright\footnotesize Adjusted for age, race/ethnicity, education, income. Bonf $\alpha=0.0033$ (15 tests). $^\dagger$Stratified by cancer type with sex as covariate. Because the SD of each index varies across cancer types (e.g., PNI SD: GI 6.4, Breast 4.7; CONUT SD: GI 1.33, Breast 0.96), per-1-SD HRs are not directly comparable in absolute units across types. The pooled estimate uses within-type standardization and is valid for the combined sample. CONUT values were multiplied by $-1$ so higher values indicate better nutritional status; HR $<$1 thus denotes a protective association throughout.
+\end{tabular}}
+\par\raggedright\footnotesize Adjusted for age, race/ethnicity, education, income. Bonf $\alpha=0.0033$ (15 tests). $^\dagger$Stratified by cancer type with sex as covariate. Because the SD of each index varies across cancer types (e.g., PNI SD: GI 6.4, Breast 4.7), per-1-SD HRs are not directly comparable in absolute units across types. CONUT values were multiplied by $-1$ so higher values indicate better nutritional status; HR $<$1 thus denotes a protective association throughout.
 \end{table}
 
 \subsubsection{GI Cancer Is Uniquely Associated With Severe Nutritional Depletion}
