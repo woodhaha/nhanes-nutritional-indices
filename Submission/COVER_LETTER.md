@@ -20,7 +20,7 @@ We believe this work is well-aligned with the scope of *Clinical Nutrition* for 
 4. **Joint inflammatory assessment:** Head-to-head comparison of nutritional (CONUT, GNRI, PNI) and inflammatory (NLR, SII) markers, including joint exposure analysis, reveals shared predictive information and identifies a particularly high-risk group (Low PNI + High NLR, HR 1.67).
 5. **Clinical actionability:** GNRI showed the strongest and most stable association with all-cause mortality (HR 0.67 per 1-SD, 95% CI 0.57-0.80, p<0.001) and remained robust across all sensitivity analyses, including Bonferroni correction, extended covariate adjustment, and competing risks. CONUT and GNRI together provide a simple, routinely available panel for early nutritional risk stratification in GI cancer patients without the need for specialized equipment or assays.
 
-This manuscript has not been published previously and is not under consideration elsewhere. All authors have approved the submission and have no conflicts of interest to declare.
+This manuscript has not been published previously and is not under consideration elsewhere. All authors have approved the submission and have no conflicts of interest to declare. Analysis code is publicly available at \url{https://github.com/woodhaha/nhanes-nutritional-indices}.
 
 We appreciate your consideration and look forward to your response.
 
