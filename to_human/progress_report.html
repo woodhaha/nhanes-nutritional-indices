@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NHANES GI Cancer — Research Complete</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #333; }
+h1 { color: #1a1a2e; border-bottom: 3px solid #e94560; padding-bottom: 8px; }
+h2 { color: #16213e; margin-top: 30px; }
+.badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 13px; font-weight: 600; margin-right: 6px; }
+.badge-green { background: #d4edda; color: #155724; }
+.badge-blue { background: #cce5ff; color: #004085; }
+.badge-orange { background: #fff3cd; color: #856404; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0; }
+.stat-card { background: #f8f9fa; border-radius: 8px; padding: 16px; text-align: center; }
+.stat-card .number { font-size: 28px; font-weight: 700; color: #1a1a2e; }
+.stat-card .label { font-size: 13px; color: #666; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #dee2e6; }
+th { background: #f8f9fa; font-weight: 600; }
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0; }
+.checklist li::before { content: "✓ "; color: #28a745; font-weight: bold; }
+.checklist li.pending::before { content: "○ "; color: #ffc107; }
+.fig-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin: 16px 0; }
+.fig-item { background: #f8f9fa; border-radius: 6px; padding: 12px; font-size: 14px; }
+.fig-item img { max-width: 100%; border-radius: 4px; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<h1>NHANES GI Cancer + Nutritional Indices</h1>
+<p style="font-size: 18px; color: #555;">Prognostic Value of PNI / CONUT / GNRI in Gastrointestinal Cancer — Dual-Cohort Validation</p>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="number">313</div>
+    <div class="label">GI Cancer Patients</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">30 yr</div>
+    <div class="label">Follow-up (1988–2019)</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">14+</div>
+    <div class="label">Analyses Completed</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">9</div>
+    <div class="label">Figures Generated</div>
+  </div>
+</div>
+
+<h2>Study Design</h2>
+<p><strong>Population:</strong> NHANES III (1988–1994) + Continuous NHANES (2005–2016), ages ≥18, GI cancer diagnosis</p>
+<p><strong>Exposures:</strong> PNI, CONUT, GNRI (biochemical) + HEI-2015 (dietary quality)</p>
+<p><strong>Outcome:</strong> All-cause mortality, with competing risk (GI cancer vs non-cancer death)</p>
+
+<h2>Key Results</h2>
+<table>
+  <tr><th>Index</th><th>HR (95% CI)</th><th>p-value</th><th>Bonferroni</th></tr>
+  <tr><td><strong>PNI</strong></td><td>0.78 (0.63–0.96)</td><td>0.020</td><td><span class="badge badge-orange">Nominal</span></td></tr>
+  <tr><td><strong>CONUT</strong></td><td>0.71 (0.61–0.83)</td><td>&lt;0.001</td><td><span class="badge badge-green">Survives</span></td></tr>
+  <tr><td><strong>GNRI</strong></td><td>0.67 (0.57–0.80)</td><td>&lt;0.001</td><td><span class="badge badge-green">Survives</span></td></tr>
+  <tr><td><strong>HEI-2015</strong></td><td>0.97 (0.70–1.35)</td><td>0.850</td><td><span class="badge badge-blue">Null</span></td></tr>
+</table>
+
+<h2>Critical Findings</h2>
+<ul>
+  <li><strong>Time-dependent:</strong> PNI effect strongest in first 2 years post-diagnosis (HR 0.34), then attenuates</li>
+  <li><strong>Competing risks:</strong> Protection is against non-cancer death (HR 0.63), not GI cancer death (HR 1.06)</li>
+  <li><strong>Mechanism:</strong> Albumin drives the effect; lymphocyte count contributes nothing independently</li>
+  <li><strong>Dietary vs Biochemical:</strong> HEI-2015 null → biochemical nutrition status is the operative pathway</li>
+  <li><strong>Optimal threshold:</strong> PNI &lt;48.5 → median survival 6.6 vs 12.8 years (RMST Δ=1.97 years)</li>
+  <li><strong>PAF:</strong> 13.4% of deaths potentially attributable to low PNI</li>
+</ul>
+
+<h2>Manuscript Status</h2>
+<ul class="checklist">
+  <li>Abstract ✓</li>
+  <li>Introduction ✓</li>
+  <li>Methods ✓</li>
+  <li>Results (12 subsections) ✓</li>
+  <li>Discussion ✓</li>
+  <li>Conclusions ✓</li>
+  <li>References ✓</li>
+  <li>Figures (6 main + 3 supplementary) ✓</li>
+  <li>Supplementary material ✓</li>
+  <li>Cover letter ✓</li>
+  <li>Title page ✓</li>
+  <li>STROBE checklist ✓</li>
+</ul>
+
+<h2>Target Journal</h2>
+<p><strong>Clinical Nutrition</strong> — already formatted in elsarticle LaTeX class</p>
+
+<h2>Remaining Steps</h2>
+<ul>
+  <li class="pending">Figure re-render check (verify HR values match final manuscript)</li>
+  <li class="pending">Final proofread of manuscript PDF</li>
+  <li class="pending">Submission via Editorial Manager</li>
+</ul>
+
+<p style="margin-top: 40px; color: #888; font-size: 13px;">Generated: 2026-07-24 | Autoresearch v1.0</p>
+</body>
+</html>

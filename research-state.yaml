@@ -1,0 +1,150 @@
+# research-state.yaml — NHANES GI Cancer + Nutritional Indices
+state: finalize
+last_updated: 2026-07-24
+
+project:
+  title: "Composite Nutritional Indices Predict Mortality Across Cancer Types: A Pooled NHANES Analysis With In-Depth Gastrointestinal Validation"
+  target_journal: "Clinical Nutrition"
+  status: manuscript_complete
+
+hypotheses:
+  H1:
+    question: "Do PNI/CONUT/GNRI predict all-cause mortality in GI cancer?"
+    status: confirmed
+    evidence: "PNI HR 0.78 (p=0.020), CONUT HR 0.71 (p<0.001), GNRI HR 0.67 (p<0.001)"
+    note: "CONUT and GNRI survive Bonferroni correction; PNI nominally significant"
+
+  H2:
+    question: "Is the nutritional effect time-dependent?"
+    status: confirmed
+    evidence: "PNI strongest in first 2 years (HR 0.34), attenuates after (interaction p<0.001)"
+
+  H3:
+    question: "Do nutritional indices protect against cancer death or non-cancer death?"
+    status: confirmed
+    evidence: "Non-cancer death (HR 0.63, p=0.001) vs GI cancer death (HR 1.06, p=0.700)"
+
+  H4:
+    question: "Is dietary quality (HEI-2015) prognostic independent of biochemical indices?"
+    status: refuted
+    evidence: "HEI-2015 HR 0.97 (p=0.850); PNI alone marginal HR 0.68 (p=0.063)"
+
+experiments:
+  - id: "cohort_main"
+    status: done
+    note: "Survey-weighted Cox, 313 GI cancer patients, 169 deaths"
+
+  - id: "time_dependent"
+    status: done
+    note: "Period-specific HRs: 0-2yr, 2-5yr, 5+yr"
+
+  - id: "landmark"
+    status: done
+    note: "1, 3, 5-year conditional survival"
+
+  - id: "competing_risks"
+    status: done
+    note: "Cause-specific Cox + Fine-Gray subdistribution"
+
+  - id: "rcs_dose_response"
+    status: done
+    note: "Nonlinearity p<0.001 for PNI; linear for CONUT/GNRI"
+
+  - id: "cutpoint_analysis"
+    status: done
+    note: "Optimal PNI threshold 48.5, cross-validated 48.3"
+
+  - id: "rmst"
+    status: done
+    note: "RMST difference 1.97 years (1.19-2.76, p<0.001)"
+
+  - id: "pni_decomposition"
+    status: done
+    note: "Albumin drives PNI; lymphocyte no independent effect"
+
+  - id: "hei_comparison"
+    status: done
+    note: "HEI-2015 null; biochemical nutrition dominates"
+
+  - id: "nlr_sii_comparison"
+    status: done
+    note: "Inflammatory markers comparable to PNI, shared information"
+
+  - id: "subgroup_analysis"
+    status: done
+    note: "Consistent direction across 8 subgroups"
+
+  - id: "sensitivity_evalue"
+    status: done
+    note: "E-values 1.66-1.97; robust to unmeasured confounding"
+
+  - id: "sensitivity_extended"
+    status: done
+    note: "Education, income, smoking, comorbidity adjusted"
+
+  - id: "sensitivity_cohort"
+    status: done
+    note: "Cohort interaction p=0.480; consistent across eras"
+
+pipeline:
+  - 00_config.R: done
+  - 00b_gi_cancer_config.R: done
+  - 04_gi_tumor_analysis.R: done
+  - 05_gi_figures.R: done
+
+manuscript:
+  format: elsarticle (Clinical Nutrition)
+  tex: manuscript.tex
+  pdf: manuscript.pdf
+  supplementary: supplementary.tex/supplementary.pdf
+  references: references.bib
+  completed_sections:
+    - abstract
+    - introduction
+    - methods
+    - results (all subsections 3.1-3.12)
+    - discussion
+    - conclusions
+    - references
+
+remaining:
+  - task: "Figure re-render check"
+    priority: low
+    status: done
+
+  - task: "Journal formatting final pass"
+    priority: low
+    status: done
+
+  - task: "Submission package preparation"
+    priority: medium
+    status: done
+
+pancancer_project:
+  title: "Nutritional Indices Predict All-Cause Mortality Across Cancer Types: A Pooled NHANES Analysis"
+  target_journal: "Clinical Nutrition"
+  status: manuscript_complete
+  tex: paper/pancancer_manuscript.tex
+  pdf: paper/pancancer_manuscript.pdf
+  supplementary: "Standalone (pancancer content removed from GI supplementary)"
+  findings:
+    H1: "Nutritional indices predict mortality across cancer types (pooled HR ~0.79, p<1e-9)"
+    H2: "CONUT effect varies by cancer type (interaction p=0.016); PNI/GNRI consistent (p>0.22)"
+    H3: "PNI most generalizable; CONUT best in GI/OtherSolid; GNRI best in female repro"
+  fixes_applied:
+    - "Table 1 (baseline) and Table 2 (HR summary) added to main text"
+    - "Sex covariate removed from cancer-type-specific models"
+    - "Survey-weighted sensitivity added (PNI HR 0.71, p<0.001)"
+    - "E-values added (PNI: 1.87, CONUT: 1.90, GNRI: 1.80)"
+    - "Bonferroni correction for 15 tests (α=0.0033)"
+    - "Flow chart numbers added to Methods"
+    - "OtherSolid heterogeneity acknowledged in Limitations"
+    - "Pancancer content removed from GI supplementary"
+  data_files:
+    - data/pancancer/nhanes_pancancer.rds
+    - data/pancancer/pancancer_hr_by_type.csv
+    - data/pancancer/pancancer_pooled.csv
+    - data/pancancer/pancancer_interaction.csv
+  figures:
+    - figures/pancancer/fig_pancancer_forest.pdf
+    - figures/pancancer/fig_pancancer_km.pdf
