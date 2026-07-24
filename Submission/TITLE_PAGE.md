@@ -1,10 +1,10 @@
 # Title Page
 
 ## Title
-Prognostic Nutritional Index and All-Cause Mortality in Gastrointestinal Cancer: A Dual-Cohort NHANES Analysis With Time-Dependent, Competing Risk, and Joint Inflammatory Assessment
+Composite Nutritional Indices Predict Mortality Across Cancer Types: A Pooled NHANES Analysis With In-Depth Gastrointestinal Validation
 
 ## Running Title
-CONUT and GNRI Predict All-Cause Mortality: NHANES 30-Year Analysis
+Nutritional Indices and Cancer Mortality: 30-Year NHANES
 
 ## Authors and Affiliations
 
@@ -26,12 +26,12 @@ Email: zhouzhuha@wmu.edu.cn
 
 ## Manuscript Notes
 
-- **Word count:** [~4,500 words]
-- **Number of figures:** 6 (main text) + 3 (supplementary)
-- **Number of tables:** 3 (main text)
-- **Supplementary materials:** 7 tables, 5 figures
-- **References:** 27
+- **Word count:** [~6,200 words]
+- **Number of figures:** 7 (main text) + 3 (supplementary)
+- **Number of tables:** 5 (main text)
+- **Supplementary materials:** 8 tables, 3 figures, HEI-2015 analysis
+- **References:** 37
 
 ## Data Availability Statement
 
-The data used in this study are publicly available from the National Health and Nutrition Examination Survey (NHANES) at https://www.cdc.gov/nchs/nhanes/.
+Data are publicly available at https://www.cdc.gov/nchs/nhanes/. Analysis code is available at https://github.com/woodhaha/nhanes-nutritional-indices.

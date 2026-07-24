@@ -1,17 +1,17 @@
 # Highlights
 
-1. CONUT and GNRI robustly predict all-cause mortality in GI cancer (63 chars)
-2. PNI effect is time-dependent, concentrated within first 2 years (60 chars)
-3. Prognostic value of PNI is driven by albumin, not lymphocyte count (64 chars)
-4. Nutritional indices primarily capture non-cancer mortality risk (59 chars)
-5. Simple lab-based indices enable early risk stratification in GI cancer (70 chars)
+1. CONUT robustly predicts all-cause mortality in GI cancer after survey-weighting
+2. PNI effect is time-dependent, concentrated within first 2 years
+3. GNRI association attenuates after accounting for survey design
+4. Prognostic value of PNI is driven by albumin, not lymphocyte count
+5. Simple lab-based indices enable early risk stratification in GI cancer
 
 ---
 
 ## Plain text (for copy-paste into Editorial Manager):
 
-CONUT and GNRI robustly predict all-cause mortality in GI cancer
+CONUT robustly predicts all-cause mortality in GI cancer after survey-weighting
 PNI effect is time-dependent, concentrated within first 2 years
+GNRI association attenuates after accounting for survey design
 Prognostic value of PNI is driven by albumin, not lymphocyte count
-Nutritional indices primarily capture non-cancer mortality risk
 Simple lab-based indices enable early risk stratification in GI cancer

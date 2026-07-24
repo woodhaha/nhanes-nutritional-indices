@@ -1,6 +1,6 @@
 # Cover Letter — Clinical Nutrition
 
-**Date:** July 23, 2026
+**Date:** July 24, 2026
 
 **To:** The Editor-in-Chief, Clinical Nutrition
 
@@ -8,41 +8,43 @@
 
 Dear Editor,
 
-We are pleased to submit our manuscript, **"Prognostic Nutritional Index and All-Cause Mortality in Gastrointestinal Cancer: A Dual-Cohort NHANES Analysis With Time-Dependent, Competing Risk, and Joint Inflammatory Assessment,"** for consideration as a Full Length Article in *Clinical Nutrition*.
+We are pleased to submit our manuscript, **"Composite Nutritional Indices Predict Mortality Across Cancer Types: A Pooled NHANES Analysis With In-Depth Gastrointestinal Validation"** for consideration as a Full Length Article in *Clinical Nutrition*.
 
-Nutritional assessment in gastrointestinal cancer patients is a core clinical challenge, and composite nutritional indices such as CONUT, GNRI, and PNI are widely used in surgical settings. However, large-scale population-level validation and head-to-head comparison across diverse populations and extended follow-up periods has been lacking. Our study addresses this gap by leveraging two independent NHANES generations — NHANES III (1988-1994) and Continuous NHANES (2005-2016) — providing up to 31 years of mortality follow-up with 313 GI cancer patients and 169 deaths.
+Nutritional assessment is a cornerstone of cancer care, yet the evidence base for common composite nutritional indices (PNI, CONUT, GNRI) rests almost entirely on single-cancer cohorts, predominantly from East Asian surgical series. It has remained unknown whether these indices generalize across cancer types, which index performs best in which context, and whether their prognostic value is proportional to the underlying malnutrition burden of each malignancy. Our study provides the first systematic cross-cancer comparison of all three indices within a single, nationally representative population, combined with an in-depth GI cancer analysis that includes time-dependent, competing risk, and mechanistic decomposition approaches.
 
 We believe this work is well-aligned with the scope of *Clinical Nutrition* for several reasons:
 
-1. **Population-level evidence:** Unlike prior single-center surgical series, our study provides nationally representative validation of three nutritional indices across two US cohorts spanning 30 years, with CONUT and GNRI emerging as the most robust predictors after rigorous multiple testing correction.
-2. **Methodological rigor:** We employed a comprehensive analytical framework including time-dependent Cox, landmark analysis, competing risks, restricted cubic splines, restricted mean survival time, E-value sensitivity analysis, and Bonferroni correction — providing both relative and absolute measures of risk.
-3. **Novel mechanistic insights:** PNI decomposition revealed that serum albumin drives the prognostic effect, while lymphocyte count contributes minimally. Competing risks analysis showed all three indices protect primarily against non-cancer death, suggesting they capture physiological reserve rather than anti-tumor activity.
-4. **Joint inflammatory assessment:** Head-to-head comparison of nutritional (CONUT, GNRI, PNI) and inflammatory (NLR, SII) markers, including joint exposure analysis, reveals shared predictive information and identifies a particularly high-risk group (Low PNI + High NLR, HR 1.67).
-5. **Clinical actionability:** GNRI showed the strongest and most stable association with all-cause mortality (HR 0.67 per 1-SD, 95% CI 0.57-0.80, p<0.001) and remained robust across all sensitivity analyses, including Bonferroni correction, extended covariate adjustment, and competing risks. CONUT and GNRI together provide a simple, routinely available panel for early nutritional risk stratification in GI cancer patients without the need for specialized equipment or assays.
+1. **Cross-cancer comparison with novel biological insight:** Across 2,942 cancer patients representing five cancer types (GI, breast, female reproductive, prostate/urinary, other solid tumors), we demonstrate that the prognostic performance of nutritional indices varies consistently with the underlying nutritional-inflammatory burden of each malignancy. GI cancer, where malnutrition affects up to 80% of patients, showed the widest survival stratification. The significant CONUT × cancer type interaction (p=0.016) further demonstrates that index performance is context-dependent.
 
-This manuscript has not been published previously and is not under consideration elsewhere. All authors have approved the submission and have no conflicts of interest to declare. Analysis code is publicly available at \url{https://github.com/woodhaha/nhanes-nutritional-indices}.
+2. **In-depth GI cancer validation with methodological rigor:** In 353 GI cancer patients with 189 deaths across 30 years of follow-up, we employed time-dependent Cox models, landmark analysis, competing risks (cause-specific and Fine-Gray), restricted cubic splines, restricted mean survival time (RMST difference 1.97 years at PNI threshold 48.5), PNI decomposition (albumin alone outperforms composite), and joint inflammatory assessment. Results were evaluated with survey-weighting, extended covariate adjustment, E-value sensitivity (1.66–1.97), and dual-cohort cross-validation.
+
+3. **Honest assessment of limitations:** We explicitly discuss the prevalent cohort design, length-biased sampling, absence of cancer stage data, and self-reported diagnoses — and calibrate our conclusions accordingly. The PNI association was survey-weighted non-significant in GI cancer, time-dependent, and driven by non-cancer mortality, with E-values insufficient to exclude confounding by cancer stage.
+
+4. **Clinical actionability:** A PNI threshold of 48.5 identifies a high-risk GI subgroup with a 1.97-year RMST difference. CONUT demonstrated the most robust association after survey-weighted analysis. All three indices are calculable from routine laboratory data, aligning with ESPEN screening recommendations.
+
+This manuscript has not been published previously and is not under consideration elsewhere. All authors have approved the submission and have no conflicts of interest to declare. Analysis code is publicly available at https://github.com/woodhaha/nhanes-nutritional-indices.
 
 We appreciate your consideration and look forward to your response.
 
 Sincerely,
 
-**Zhuha Zhou, MD**  
-Corresponding Author  
-Department of Gastroenterology Surgery  
-The First Affiliated Hospital of Wenzhou Medical University  
-Wenzhou, Zhejiang, China  
+**Zhuha Zhou, MD**
+Corresponding Author
+Department of Gastroenterology Surgery
+The First Affiliated Hospital of Wenzhou Medical University
+Wenzhou, Zhejiang, China
 Email: zhouzhuha@wmu.edu.cn
 
 ---
 
-**Yiqi Cai** — Co-First Author  
-Department of Gastroenterology Surgery  
+**Yiqi Cai** — Co-First Author
+Department of Gastroenterology Surgery
 The First Affiliated Hospital of Wenzhou Medical University
 
-**Yongyu Bai** — Co-First Author  
-Department of Gastroenterology Surgery  
+**Yongyu Bai** — Co-First Author
+Department of Gastroenterology Surgery
 The First Affiliated Hospital of Wenzhou Medical University
 
-**Qigang Xu** — Co-Author  
-Department of Hepatobiliary and Pancreatic Surgery  
+**Qigang Xu** — Co-Author
+Department of Hepatobiliary and Pancreatic Surgery
 The First Affiliated Hospital of Wenzhou Medical University
