@@ -1,110 +1,72 @@
-# NHANES Nutrition + Cognition + Depression Study (老年人)
+# Nutritional Indices and Mortality Across Cancer Types — NHANES Analysis
 
-> **Research Question**: In US adults ≥60, what is the association between multi-index nutritional status (DII/PNI/CONUT/GNRI) and cognitive function, and does depression mediate this relationship?
+> **Manuscript**: Composite Nutritional Indices Predict Mortality Across Cancer Types: A Pooled NHANES Analysis With In-Depth Gastrointestinal Validation
+> **Target Journal**: Clinical Nutrition
+> **Analysis code for**: PNI, CONUT, and GNRI as predictors of all-cause mortality in 2,942 cancer patients (NHANES III 1988–1994 + Continuous NHANES 2005–2016)
 
-**Data**: NHANES 2011-2014 (only cycles with CERAD/AFT/DSST cognitive assessments)
-**Design**: Cross-sectional, survey-weighted
-**Status**: Analysis pipeline ready. Data not yet downloaded.
-
-## File Structure
+## Project Structure
 
 ```
-NHANES_cognition_nutrition/
-├── run_all.R                    # Master runner — source this to run everything
-├── README.md                    # This file
-├── R_scripts/
-│   ├── 00_config.R              # Package loading, paths, NHANES variable lists
-│   ├── 01_load_and_derive.R     # Data download (nhanesA), merge, DII/PNI/CONUT
-│   ├── 02_analysis.R            # Survey design, Table 1, models, RCS, subgroup, SEM
-│   └── 03_figures.R             # 6 main + 5 supplementary figures
-├── data/                        # Raw and derived data (auto-created)
-├── results/                     # CSV output tables
-└── figures/                     # PDF + PNG figures
+NHANES/
+├── Scripts/                       # Main analysis pipeline (current)
+│   ├── 01_prepare.R               # Data preparation and merging
+│   ├── 02_analyze.R               # Main GI analysis (Cox, time-dependent, landmark, competing risks, RCS)
+│   ├── 03_advanced.R              # PNI decomposition, NLR/SII, CRP, CALLY
+│   ├── 04_revision_sensitivity.R  # Cohort-stratified, survey-weighted, extended covariates
+│   ├── 05_extra_confounders.R     # Additional covariate adjustments
+│   ├── 06_pancancer_prep.R        # Pancancer data preparation
+│   ├── 07_pancancer_analysis.R    # Cross-cancer Cox models + interaction tests
+│   ├── 08_survey_weighted_comparison.R  # Side-by-side unweighted vs survey-weighted
+│   ├── flow_diagram.R             # Study flow diagram
+│   ├── figures_merge.R            # Figure composition
+│   ├── run_all.R                  # Pipeline orchestrator
+│   └── audit.py / audit_final.py  # Numerical consistency checks
+├── R_scripts/                     # Alternative pipeline version
+│   ├── 04_gi_tumor_analysis.R     # GI tumor classification + analysis
+│   └── 05_gi_figures.R            # GI-specific figures
+├── results/
+│   └── gi_analysis/               # All analysis output CSVs
+├── manuscript.tex                 # Main manuscript (LaTeX)
+├── supplementary.tex              # Supplementary materials
+├── findings.md                    # Key results summary
+└── research-state.yaml            # Project state tracking
 ```
 
-## Quick Start
+## Reproducibility
 
-```r
-# In R or RStudio:
-setwd("C:/Users/woodh/Documents")
-source("NHANES_cognition_nutrition/run_all.R")
-```
+1. **Data**: Publicly available from CDC at `https://wwwn.cdc.gov/nchs/nhanes/`
+2. **R version**: 4.6.0
+3. **Key packages**: `survival`, `survey`, `dplyr`, `ggplot2`, `splines`, `survminer`
+4. **Run order**: `Scripts/01_prepare.R` → `02_analyze.R` → `03_advanced.R` → subsequent scripts
 
-## What the Pipeline Produces
+Note: NHANES III data uses the public-use mortality linkage file; Continuous NHANES data downloads via `nhanesA` package (or direct `haven::read_xpt` with the updated CDC URL format: `/Nchs/Data/Nhanes/Public/{year}/DataFiles/{table}.xpt`).
 
-### Results Tables
-| File | Description |
-|------|-------------|
-| `table1_baseline.csv` | Weighted baseline by PNI tertile |
-| `main_results.csv` | All models × all exposures (4 models × 4 indices) |
-| `head2head_comparison.csv` | Standardized β comparison (Model 3) |
-| `r2_increment.csv` | Incremental R² beyond base model |
-| `rcs_predictions.csv` | RCS predicted values + 95% CI |
-| `subgroup_results.csv` | Stratified β by 8 subgroups |
-| `interaction_results.csv` | Interaction p-values |
-| `mediation_sem.csv` | SEM parameter estimates (1000 bootstrap) |
-| `sensitivity_analysis.csv` | 7 sensitivity checks |
-| `depression_outcome.csv` | PHQ-9 as secondary outcome |
+## Key Results
 
-### Figures
-| Figure | Content |
-|--------|---------|
-| Fig 2 | Head-to-head forest: 4 nutritional indices |
-| Fig 3 | RCS dose-response: DII ~ cognitive function |
-| Fig 4 | Subgroup forest: 8 strata |
-| Fig 5 | Sensitivity tornado plot |
-| Fig 6 | Mediation path diagram (DII → PHQ-9 → cognition) |
-| S1 | Raw scatter + LOESS |
-| S2 | Cognitive domain distributions |
-| S3 | PNI tertile boxplots |
-| S4 | Incremental R² bar chart |
-| S5 | Sequential model stability |
+### Cross-Cancer (n=2,942, 1,135 deaths)
+| Index | Pooled HR (95% CI) | p |
+|-------|-------------------|---|
+| PNI | 0.78 (0.73–0.84) | <0.001 |
+| CONUT | 0.78 (0.73–0.82) | <0.001 |
+| GNRI | 0.80 (0.75–0.86) | <0.001 |
 
-## Key Variables
+### GI Cancer (n=353, 189 deaths) — Survey-Weighted
+| Index | HR (95% CI) | p |
+|-------|------------|---|
+| PNI | 0.87 (0.61–1.23) | 0.432 |
+| CONUT | 0.76 (0.63–0.91) | 0.003 |
+| GNRI | 0.80 (0.61–1.05) | 0.103 |
 
-### Exposures (4 nutritional indices)
-| Index | Formula | Data Source |
-|-------|---------|-------------|
-| **E-DII** | Energy-adjusted Dietary Inflammatory Index (28 components) | Day 1 24h recall |
-| **PNI** | 10 × Alb(g/dL) + 0.005 × Lymph(/μL) | BIOPRO + CBC |
-| **CONUT** | Alb + Chol + Lymph score (0-12) | BIOPRO + TCHOL + CBC |
-| **GNRI** | 14.89 × Alb(g/dL) + 41.7 × (BMI/22) | BIOPRO + BMX |
+## Manuscript
 
-### Outcomes
-- **Cognitive composite Z-score**: mean(z_CERAD_imm, z_CERAD_del, z_AFT, z_DSST)
-- **PHQ-9 depression**: continuous (0-27) + binary (≥10)
-- **Probable MCI**: composite Z < -1 SD
+- `manuscript.tex` — Full manuscript formatted for Clinical Nutrition (elsarticle)
+- `supplementary.tex` — Supplementary materials (Tables S1–S8, Figure S1)
+- `references.bib` — Reference database
 
-### Covariates
-Model 1: age + sex
-Model 2: + race + education + income (PIR)
-Model 3: + BMI + smoking + alcohol + physical activity + comorbidity + CRP
-Model 4: + PHQ-9 (for cognition outcome)
+## Data Availability
 
-## Novelty vs. Published Literature
+All NHANES data are publicly available from the CDC. Analysis code is provided in this repository. No patient-level data is included.
 
-| Published | This Study |
-|-----------|-----------|
-| DII → cognition (Zhang 2024, Du 2024) | **4 indices head-to-head** comparison |
-| Single-index analysis | **PNI/CONUT blood-based** (more objective than dietary recall) |
-| No food security | **Food security as upstream determinant** |
-| DII → depression mediation (Sun 2022) | **Bidirectional mediation** (cog ↔ depression) |
-| No kidney function consideration | **CKD stratification** (major elderly confounder) |
+## Contact
 
-## Notes
-
-- **First run** downloads ~200MB from CDC; cached to `data/nhanes_*_raw.RData`
-- **NHANES 2011-2014 is the ONLY period** with cognitive assessment data
-- **Survey weights**: Pooled 4-year MEC weight (WTMEC2YR/2)
-- **Strata**: Combined cycle+original strata to ensure uniqueness
-- DII calculation requires ≥20 of 28 components to be non-missing
-- SEM uses MLR estimator with 1000 bootstrap (survey weights not natively supported by lavaan)
-
-## References
-
-- Zhang et al. (2024) DII + cognitive impairment, NHANES 2011-2014. *Front Aging Neurosci*. doi:10.3389/fnagi.2024.1371873
-- Du et al. (2024) DII + PA + cognitive function. *Gen Hosp Psychiatry*. doi:10.1016/j.genhosppsych.2024.09.003
-- Sun et al. (2022) DII → cognition → depression mediation. *Nutrients*
-- Shivappa et al. (2014) DII development & validation. *Public Health Nutr*. doi:10.1017/S1368980013002115
-- Onodera et al. (1984) PNI formula. *Jpn J Surg*
-- Ignacio de Ulíbarri et al. (2005) CONUT score. *Nutr Hosp*
+Zhuha Zhou — zhouzhuha@wmu.edu.cn
