@@ -160,7 +160,7 @@ The systematic superiority of nutritional indices in GI cancer was grounded in b
 
 In the cancer-type-stratified pooled analysis, all three indices robustly predicted all-cause mortality (PNI: HR 0.78, CONUT: HR 0.78, GNRI: HR 0.80; all p$<$0.001). CONUT demonstrated significant effect modification by cancer type (LRT $\chi^2=12.15$, df=4, p=0.016), driven by stronger associations in GI and other solid tumors and null effects in breast and prostate/urinary cancers. Neither PNI (LRT p=0.23) nor GNRI (p=0.23) showed significant interaction.
 
-In survey-weighted sensitivity analysis (Continuous NHANES subset, n=2,393, 702 events), pooled results were confirmed: PNI HR 0.71 (95\% CI 0.62--0.81, p$<$0.001), CONUT HR 0.77 (0.70--0.85, p$<$0.001), GNRI HR 0.85 (0.75--0.96, p=0.011). E-values for the pooled estimates were 1.87 (PNI), 1.90 (CONUT), and 1.80 (GNRI), indicating moderate robustness to unmeasured confounding, comparable to E-values reported for smoking in NHANES.
+In survey-weighted sensitivity analysis (Continuous NHANES subset, n=2,669, 918 events), pooled results were confirmed: PNI HR 0.74 (95\% CI 0.64--0.86, p$<$0.001), CONUT HR 0.79 (0.72--0.86, p$<$0.001), GNRI HR 0.86 (0.77--0.97, p=0.012). E-values for the pooled estimates were 1.87 (PNI), 1.90 (CONUT), and 1.80 (GNRI), indicating moderate robustness to unmeasured confounding, comparable to E-values reported for smoking in NHANES.
 
 \subsection{Part 2: In-Depth GI Cancer Analysis}
 
@@ -172,19 +172,22 @@ All three nutritional indices significantly predicted all-cause mortality after 
 \caption{GI Cancer: Cox Regression---All-Cause Mortality}
 \label{tab:gi_cox}
 \centering
-\begin{tabular}{lllc}
+\begin{tabular}{llccc}
 \toprule
-Index & Adjustment & HR (95\% CI) per 1-SD & p \\
+Index & Adjustment & \multicolumn{2}{c}{Unweighted} & Survey-Weighted \\
+\cmidrule(lr){3-4}\cmidrule(l){5-5}
+   &  & HR (95\% CI) & p & HR (95\% CI) \\
 \midrule
-PNI & Crude & 0.63 (0.51--0.78) & $<$0.001 \\
-PNI & Adjusted$^*$ & 0.78 (0.63--0.96) & 0.020 \\
-CONUT & Crude & 0.63 (0.55--0.73) & $<$0.001 \\
-CONUT & Adjusted$^*$ & 0.71 (0.61--0.83) & $<$0.001 \\
-GNRI & Crude & 0.67 (0.56--0.79) & $<$0.001 \\
-GNRI & Adjusted$^*$ & 0.67 (0.57--0.80) & $<$0.001 \\
+PNI & Crude & 0.63 (0.51--0.78) & $<$0.001 & --- \\
+PNI & Adjusted$^*$ & 0.78 (0.63--0.96) & 0.020 & 0.87 (0.61--1.23) \\
+CONUT & Crude & 0.63 (0.55--0.73) & $<$0.001 & --- \\
+CONUT & Adjusted$^*$ & 0.71 (0.61--0.83) & $<$0.001 & 0.76 (0.63--0.91)$^\dagger$ \\
+GNRI & Crude & 0.67 (0.56--0.79) & $<$0.001 & --- \\
+GNRI & Adjusted$^*$ & 0.67 (0.57--0.80) & $<$0.001 & 0.80 (0.61--1.05) \\
 \bottomrule
 \end{tabular}
-\par\footnotesize $^*$Adjusted for age, sex, race/ethnicity.
+\par\footnotesize $^*$Adjusted for age, sex, race/ethnicity. $^\dagger$p=0.003.
+Survey-weighted models restricted to Continuous NHANES (2005--2016) with available sampling weights (n=270, 134 events).
 \end{table}
 \subsubsection{Time-Dependent Effects}
 
@@ -244,7 +247,7 @@ Among 250 patients with CRP measurements, CRP was non-significantly associated w
 
 Among 99 GI cancer patients with dietary data, HEI-2015 did not predict mortality (HR 0.97, p=0.850). The correlation between HEI-2015 and PNI was weak (r=0.16), confirming these measures capture distinct dimensions of nutritional status.
 
-Survey-weighted Cox models in the GI subset (Continuous NHANES only, n=270, 134 events) attenuated PNI (HR 0.87, p=0.430) while CONUT (HR 0.76, p=0.003) and GNRI (HR 0.73, p=0.003) remained significant. E-values for the primary GI analysis ranged from 1.66 (PNI) to 1.97 (GNRI), indicating moderate robustness to unmeasured confounding.
+Survey-weighted Cox models in the GI subset (Continuous NHANES only, n=270, 134 events) confirmed CONUT as robust (HR 0.76, 95\% CI 0.63--0.91, p=0.003), while PNI (HR 0.87, 95\% CI 0.61--1.23, p=0.432) and GNRI (HR 0.80, 95\% CI 0.61--1.05, p=0.103) were attenuated and no longer significant. E-values for the primary GI analysis ranged from 1.66 (PNI) to 1.97 (GNRI), indicating moderate robustness to unmeasured confounding.
 
 Cohort-stratified analyses revealed consistent effects across NHANES generations: PNI showed similar associations in NHANES III (HR 0.69, p=0.015) and Continuous NHANES (HR 0.75, p=0.047), with no significant cohort-by-PNI interaction (p=0.480). Similar consistency was observed for CONUT (p=0.940) and GNRI (p=0.950).
 

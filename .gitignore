@@ -12,10 +12,31 @@ Rplots.pdf
 manuscript.pdf
 supplementary.pdf
 
-# Large NHANES III raw data (CDC public — reproducible)
+# Large NHANES raw data (CDC public — reproducible)
 data/nhanes3/
+data/fped/
 
 # Derived data cache (reproducible from scripts)
 data/gi_analysis/*.rds
-data/gi_analysis/*.csv
+data/pancancer/*.rds
 data/gi_analysis/*.RData
+
+# Generated figures
+figures/
+
+# Literature downloads
+literature/
+
+# Submission packaging
+submission_package/
+Submission/figures/
+
+# Generated paper builds
+paper/
+
+# Internal tracking
+to_human/
+
+# OS
+Thumbs.db
+.DS_Store
