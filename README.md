@@ -21,7 +21,7 @@ NHANES/
 │   ├── figures_merge.R            # Figure composition
 │   ├── run_all.R                  # Pipeline orchestrator
 │   └── audit.py / audit_final.py  # Numerical consistency checks
-├── R_scripts/                     # Alternative pipeline version
+├── R_scripts/                     # Raw data download & alternative GI pipeline (see note below)
 │   ├── 04_gi_tumor_analysis.R     # GI tumor classification + analysis
 │   └── 05_gi_figures.R            # GI-specific figures
 ├── results/
@@ -32,14 +32,18 @@ NHANES/
 └── research-state.yaml            # Project state tracking
 ```
 
+Note: The `Scripts/` directory is the canonical pipeline for the manuscript. The `R_scripts/` directory contains an earlier version of the GI analysis with raw NHANES data download code (using `nhanesA` and `haven::read_xpt`), which may be useful if rebuilding the intermediate RDS files from source data.
+
 ## Reproducibility
 
 1. **Data**: Publicly available from CDC at `https://wwwn.cdc.gov/nchs/nhanes/`
 2. **R version**: 4.6.0
 3. **Key packages**: `survival`, `survey`, `dplyr`, `ggplot2`, `splines`, `survminer`
 4. **Run order**: `Scripts/01_prepare.R` → `02_analyze.R` → `03_advanced.R` → subsequent scripts
+5. **RDS dependency**: The pipeline assumes pre-processed RDS files in `results/gi_analysis/`. The `R_scripts/` directory contains raw data download code (see `R_scripts/04_gi_tumor_analysis.R`) if rebuilding from NHANES source data is desired.
 
 Note: NHANES III data uses the public-use mortality linkage file; Continuous NHANES data downloads via `nhanesA` package (or direct `haven::read_xpt` with the updated CDC URL format: `/Nchs/Data/Nhanes/Public/{year}/DataFiles/{table}.xpt`).
+Package versions used in the analysis are recorded in `session_info.txt`.
 
 ## Key Results
 
