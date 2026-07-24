@@ -8,12 +8,12 @@ Nutritional Indices and Cancer Mortality: 30-Year NHANES
 
 ## Authors and Affiliations
 
-**Yiqi Cai^1^† · Yongyu Bai^1^† · Qigang Xu^2^ · Zhuha Zhou^1^* **
+**Yiqi Cai^1^† · Yongyu Bai^1^ · Qigang Xu^2^ · Zhuha Zhou^1^* **
 
 ^1^ Department of Gastroenterology Surgery, The First Affiliated Hospital of Wenzhou Medical University, Wenzhou, Zhejiang, China
 ^2^ Department of Hepatobiliary and Pancreatic Surgery, The First Affiliated Hospital of Wenzhou Medical University, Wenzhou, Zhejiang, China
 
-^†^ These authors contributed equally to this work.
+^†^ First author.
 ^*^ Corresponding author.
 
 ## Corresponding Author

@@ -34,7 +34,7 @@ zhouzhuha@wmu.edu.cn
 
 ---
 
-**Yiqi Cai** — Co-First Author · **Yongyu Bai** — Co-First Author
+**Yiqi Cai** — First Author · **Yongyu Bai** — Co-author
 Department of Gastroenterology Surgery
 
 **Qigang Xu** — Co-Author
