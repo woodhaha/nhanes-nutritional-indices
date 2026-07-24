@@ -1,6 +1,7 @@
 \documentclass[review]{elsarticle}
 
 \protected\def\bfseries{\fontseries\bfdefault\selectfont}
+\usepackage{microtype}
 \usepackage{lineno}
 \usepackage{setspace}
 \usepackage{amsmath, amssymb}
@@ -71,17 +72,15 @@ Because NHANES is a cross-sectional survey, participants are sampled at varying 
 
 \subsection{Cancer Type Classification}
 
-Cancer diagnosis was ascertained from self-reported medical conditions questionnaires (MCQ230A/MCQ240A for continuous NHANES; HAC3OS for NHANES III). Cancer types were classified into five pancancer groups: gastrointestinal (GI: esophagus, stomach, colon, rectum, pancreas, liver, gallbladder), breast, female reproductive (cervix, ovary, uterine), prostate/urinary (prostate, bladder, kidney, testicular), and other solid tumors (melanoma, thyroid, brain, bone, head/neck, skin).
+Cancer diagnosis was ascertained from self-reported medical conditions questionnaires (MCQ230A/MCQ240A for continuous NHANES; HAC3OS for NHANES III). Cancer types were classified into five pancancer groups: gastrointestinal (GI: esophagus, stomach, colon, rectum, pancreas, liver, gallbladder), breast, female reproductive (cervix, ovary, uterine), prostate/urology (prostate, bladder, kidney, testicular), and other solid tumors (melanoma, thyroid, brain, bone, head/neck, skin).
 
 \subsection{Nutritional Indices}
 
-PNI was calculated as $10 \times \text{serum albumin (g/dL)} + 0.005 \times \text{lymphocyte count} (\mu\text{L}^{-1})$~\cite{onodera1984}. CONUT was derived as the sum of three component scores: albumin ($\ge$3.5 g/dL = 0, 3.0--3.49 = 2, 2.5--2.99 = 4, $<$2.5 = 6), lymphocyte count ($\ge$1600 $\mu$L$^{-1}$ = 0, 1200--1599 = 1, 800--1199 = 2, $<$800 = 3), and total cholesterol ($\ge$180 mg/dL = 0, 140--179 = 1, 100--139 = 2, $<$100 = 3)~\cite{ignacio2005}. GNRI was calculated as $14.89 \times \text{albumin (g/dL)} + 41.7 \times (\text{BMI}/22)$~\cite{bouillanne2005}.
-
-HEI-2015 was calculated from 24-hour dietary recall data using the Food Patterns Equivalents Database. Serum albumin was measured using the bromcresol purple method in Continuous NHANES and bromcresol green in NHANES III, with cohort included as a fixed effect to account for assay differences. To align hazard ratio direction across indices, CONUT values were multiplied by $-$1 prior to standardization so that higher values uniformly indicate better nutritional status; PNI and GNRI were used in their original orientation (higher = better).
+PNI was calculated as $10 \times \text{albumin} + 0.005 \times \text{lymphocyte count}/\mu\text{L}$~\cite{onodera1984}. CONUT sums three component scores: albumin ($\ge$3.5~g/dL = 0, 3.0--3.49 = 2, 2.5--2.99 = 4, $<$2.5 = 6), lymphocyte ($\ge$1600~$\mu$L$^{-1}$ = 0, 1200--1599 = 1, 800--1199 = 2, $<$800 = 3), and cholesterol ($\ge$180~mg/dL = 0, 140--179 = 1, 100--139 = 2, $<$100 = 3)~\cite{ignacio2005}. GNRI was calculated as $14.89 \times \text{albumin} + 41.7 \times (\text{BMI}/22)$~\cite{bouillanne2005}. HEI-2015 was calculated from 24-hour recall data using the Food Patterns Equivalents Database. Serum albumin was measured using the bromcresol purple method in Continuous NHANES and bromcresol green in NHANES III, with cohort included as a fixed effect to account for assay differences. To align hazard ratio direction across indices, CONUT values were multiplied by $-$1 prior to standardization so that higher values uniformly indicate better nutritional status; PNI and GNRI were used in their original orientation (higher = better).
 
 \subsection{Mortality and Statistical Analysis}
 
-Mortality status was ascertained through NCHS National Death Index through December 31, 2019. Cause of death was classified using UCOD\_LEADING (code 002 = malignant neoplasm). In GI cancer, cause-specific death was proxied by baseline GI cancer plus UCOD=002.
+Mortality status was ascertained through NCHS National Death Index through December 31, 2019. Cause of death was classified using UCOD\_LEADING (code 002 = malignant neoplasm). In GI cancer, cause-specific death was defined by baseline GI cancer plus UCOD=002.
 
 \subsubsection{Cross-Cancer Analysis}
 
@@ -104,7 +103,7 @@ Of 2,942 cancer patients (median age 66, 45.8\% female), 1,135 deaths (38.6\%) o
 \begin{table}[t]
 \caption{Baseline Characteristics by Cancer Type}
 \label{tab:pan_baseline}
-\centering\small
+\centering\resizebox{\textwidth}{!}{%
 \begin{tabular}{lccccc}
 \toprule
 Variable & GI (n=353) & Breast (n=440) & FemaleRepro (n=415) & ProstateUrinary (n=516) & OtherSolid (n=1,218) \\
@@ -119,7 +118,7 @@ GNRI & 115.4 (12.3) & 116.2 (13.0) & 116.8 (14.0) & 116.3 (11.7) & 115.8 (11.7) 
 Deaths (\%) & 189 (53.5) & 165 (37.5) & 121 (29.2) & 216 (41.9) & 444 (36.5) \\
 Median surv, yr & 7.8 & 7.3 & 8.7 & 6.5 & 7.8 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 \subsubsection{Cancer-Type-Specific Associations}
 
@@ -153,7 +152,7 @@ Pooled$^\dagger$ (n=2,942, 1,135 events) & PNI & 0.78 (0.73--0.84) & $<$0.001 & 
                  & GNRI & 0.80 (0.75--0.86) & $<$0.001 & -- \\
 \bottomrule
 \end{tabular}
-\par\footnotesize Adjusted for age, race/ethnicity, education, income. Bonf $\alpha=0.0033$ (15 tests). $^\dagger$Stratified by cancer type with sex as covariate. Because the standard deviation of each index varies across cancer types (e.g., PNI SD: GI 6.4, Breast 4.7; CONUT SD: GI 1.33, Breast 0.96), per-1-SD HRs are not directly comparable in absolute units across types. The pooled estimate uses within-type standardization and is valid for the combined sample. CONUT values were multiplied by $-1$ so higher values indicate better nutritional status; HR $<$1 thus denotes a protective association throughout.
+\par\raggedright\footnotesize Adjusted for age, race/ethnicity, education, income. Bonf $\alpha=0.0033$ (15 tests). $^\dagger$Stratified by cancer type with sex as covariate. Because the SD of each index varies across cancer types (e.g., PNI SD: GI 6.4, Breast 4.7; CONUT SD: GI 1.33, Breast 0.96), per-1-SD HRs are not directly comparable in absolute units across types. The pooled estimate uses within-type standardization and is valid for the combined sample. CONUT values were multiplied by $-1$ so higher values indicate better nutritional status; HR $<$1 thus denotes a protective association throughout.
 \end{table}
 
 \subsubsection{GI Cancer Is Uniquely Associated With Severe Nutritional Depletion}
@@ -196,14 +195,14 @@ CONUT values were multiplied by $-1$ so higher values indicate better nutritiona
 \end{table}
 \subsubsection{Time-Dependent Effects}
 
-The proportional hazards assumption was violated for PNI (Schoenfeld p=0.017) but not for CONUT (p=0.430) or GNRI (p=0.087). Time-dependent Cox models revealed marked attenuation of the PNI effect: the protective association was strongest in the first 2 years (HR 0.34, 95\% CI 0.21--0.54, p$<$0.001) and non-significant thereafter (2--5 year: HR 1.32, p=0.490; 5+ year: HR 0.81, p=0.450; interaction p$<$0.001). GNRI showed a similar temporal pattern (0--2 year HR 0.53, p=0.034), while CONUT demonstrated more stable effects across periods.
+The proportional hazards assumption was violated for PNI (Schoenfeld p=0.017) but not for CONUT (p=0.430) or GNRI (p=0.087). Time-dependent Cox models showed marked attenuation of the PNI effect: strongest in the first 2~years (HR~0.34, 95\%~CI~0.21--0.54, p$<$0.001) and non-significant thereafter (2--5~yr:~HR~1.32, p=0.490; 5+~yr:~HR~0.81, p=0.450; interaction p$<$0.001). GNRI showed a similar pattern (0--2~yr~HR~0.53, p=0.034), while CONUT was more stable across periods.
 
 In landmark analysis, PNI showed attenuated and non-significant effects at 1, 3, and 5 years, while CONUT and GNRI maintained significant associations at all landmark times (Table~4). In sensitivity analyses excluding deaths within 2 years, PNI was no longer associated with mortality (HR 0.98, 95\% CI 0.78--1.23, p=0.830), consistent with the concentration of its prognostic effect in the early post-assessment period. In contrast, CONUT and GNRI maintained significant associations (HR 0.77, p=0.006 and HR 0.70, p$<$0.001, respectively), suggesting more stable long-term prognostic value.
 
 \begin{table}[h]
 \caption{GI Cancer: Landmark Analysis---Adjusted HR per 1-SD}
 \label{tab:gi_landmark}
-\centering
+\centering\resizebox{\textwidth}{!}{%
 \begin{tabular}{lccc}
 \toprule
 Index & 1-year & 3-year & 5-year \\
@@ -212,13 +211,13 @@ PNI & 0.91 (0.73--1.13, p=0.380) & 0.85 (0.66--1.10, p=0.210) & 0.81 (0.60--1.09
 CONUT & 0.75 (0.63--0.89, p$<$0.001) & 0.71 (0.58--0.88, p=0.002) & 0.74 (0.57--0.96, p=0.021) \\
 GNRI & 0.70 (0.59--0.84, p$<$0.001) & 0.70 (0.57--0.86, p$<$0.001) & 0.70 (0.56--0.89, p=0.003) \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \par\footnotesize Adjusted for age, sex, race/ethnicity.
 \end{table}
 
 \subsubsection{Optimal PNI Threshold and Dose-Response}
 
-Maximally selected log-rank statistics identified PNI $<$ 48.5 as the optimal prognostic threshold (p$<.0001). Patients below this threshold had markedly shorter median survival (6.6 vs. 12.8 years) (Figure~4). RMST analysis at 10 years confirmed a clinically meaningful difference of 1.97 years between groups (95\% CI 1.19--2.76, p$<$0.001; Supplementary Figure~S3). The population attributable fraction~\cite{rockhill1998}, calculated under the causal assumption that the PNI-mortality association is unconfounded, was 13.4\% (95\% CI 6.2\%--20.1\%). Restricted cubic spline analysis confirmed a nonlinear relationship for PNI (nonlinearity p$<.0001) with sharp risk increase below approximately 45 and a plateau above 50, while CONUT and GNRI did not significantly deviate from linearity (nonlinearity p=0.110 and p=0.160, respectively) (Figure~7).
+Maximally selected log-rank statistics identified PNI $<$48.5 as the optimal threshold (p$<$.0001). Patients below this cutoff had shorter median survival (6.6 vs.~12.8~years) (Figure~4). RMST at 10~years showed a clinically meaningful difference of 1.97~years (95\%~CI 1.19--2.76, p$<$0.001; Supplementary Figure~S3). The population attributable fraction~\cite{rockhill1998}, under the causal assumption of no unmeasured confounding, was 13.4\% (95\%~CI 6.2\%--20.1\%). Restricted cubic splines confirmed nonlinearity for PNI (p$<$.0001) with risk increasing below 45 and plateauing above 50, whereas CONUT and GNRI did not significantly deviate from linearity (p=0.110 and p=0.160) (Figure~7).
 
 \subsubsection{Competing Risks Analysis}
 
@@ -278,7 +277,7 @@ Consistent effect estimates were reported by Li et al.~\cite{li2025}, who analyz
 
 PNI showed no significant cross-cancer interaction (p=0.23), though limited statistical power for interaction testing should be noted. This may reflect albumin's universal role as a combined nutritional marker and negative acute-phase reactant, suggesting PNI could serve as a generic screening tool across cancer types, with CONUT added for malnutrition-prone populations where its additional components may provide incremental prognostic information.
 
-Because NHANES surveys participants at varying times after diagnosis (prevalent cohort design), the observed cross-cancer ranking of index performance may partly reflect differential length-biased sampling: patients with aggressive malignancies (e.g., pancreatic cancer) who survive long enough to be included are highly selected survivors, whereas those with indolent cancers (e.g., prostate) are more representative of the full disease spectrum. This should be considered when interpreting cross-cancer comparisons.
+Because NHANES surveys participants at varying times after diagnosis (prevalent cohort), the observed cross-cancer ranking may partly reflect differential length-biased sampling: patients with aggressive malignancies (e.g., pancreatic) survive long enough to be included only if highly selected, whereas those with indolent cancers (e.g., prostate) better represent the full disease spectrum. This should be considered when interpreting cross-cancer comparisons.
 
 \subsection{Time-Dependent and Cause-Specific Mechanisms in GI Cancer}
 
@@ -304,13 +303,13 @@ Key strengths include national representativeness from two independent survey er
 
 Several limitations warrant consideration. Cancer stage, grade, and treatment data---the strongest prognostic factors---are not available in NHANES public-use data, introducing potential confounding by disease severity. Cancer diagnoses are self-reported without registry verification. In NHANES III, 30.2\% of GI cancer cases had unspecified primary sites, and differential misclassification by generation may affect cross-cohort comparisons. A sensitivity analysis excluding unspecified GI cases was examined; results were not materially different (data not shown), though the small sample size limits the informativeness of this exclusion. The public-use mortality file provides only a 10-group cause-of-death recode, limiting cause-specific granularity; the proxy used for GI cancer death (baseline GI cancer plus UCOD=002) may misclassify deaths from non-GI malignancies in GI patients.
 
-The prevalent cohort design is an important methodological constraint. NHANES surveys participants at a single time point after cancer diagnosis, with no data on time since diagnosis. This introduces length-biased sampling (patients with longer survival are overrepresented) and precludes adjustment for disease duration. The observed PNI-mortality association may partly reflect confounding by disease severity, particularly given the absence of reliable cancer staging---sensitivity analyses excluding early deaths partially address reverse causation but cannot fully substitute for incident cohort data. Because length-biased sampling may operate differentially across cancer types (e.g., pancreatic cancer survivors in NHANES are more selected than prostate cancer survivors), its impact on cross-cancer comparisons is uncertain and cross-cancer findings should be interpreted with this caveat in mind. The PNI time-dependent effect (concentrated in the first 2 years) is equally compatible with a true early nutritional effect and with confounding by disease severity, and the available data cannot distinguish these explanations.
+The prevalent cohort design is an important methodological constraint. NHANES surveys participants at a single time point after cancer diagnosis, with no data on time since diagnosis. This introduces length-biased sampling (longer-surviving patients overrepresented) and precludes adjustment for disease duration. The PNI-mortality association may partly reflect confounding by disease severity, particularly given the absence of cancer staging---sensitivity analyses excluding early deaths partially address reverse causation but cannot substitute for incident cohort data. Because length bias may operate differentially across cancer types (e.g., pancreatic vs. prostate cancer survivors in NHANES), its impact on cross-cancer comparisons is uncertain. The PNI time-dependent effect (concentrated in the first 2~years) is equally compatible with a true nutritional effect and with confounding by disease severity, and the available data cannot distinguish these explanations.
 
 Single baseline nutritional measurements are an additional constraint. The GI analysis is predominantly colorectal (67\%), limiting generalizability to upper GI sites. The ``other solid tumor'' category is heterogeneous, encompassing biologically distinct malignancies (melanoma, thyroid, brain, head/neck, sarcoma), and results from this group should be interpreted as a summary of association across diverse tumor biologies rather than evidence for any single site. GNRI was originally validated in elderly populations ($\ge$65 years), and its application to younger cancer types (e.g., female reproductive, mean age 57) may not carry the same prognostic meaning. The prior GI paper filtering to age $\ge$60 is not applied here; sensitivity analyses using age $\ge$60 in the GI subset (n=313) yielded consistent results (data not shown). The PNI threshold of 48.5 was identified via maximally selected log-rank statistics using the Lausen--Schumacher asymptotic correction for multiple cutpoint testing. The threshold requires independent validation, and the RMST and PAF estimates derived from it should be interpreted conservatively. The survey-weighted analysis attenuated PNI's GI-specific association (HR 0.87, p=0.430), suggesting caution in interpreting this finding. We also acknowledge that the non-significant interaction tests for PNI and GNRI across cancer types (both p=0.23) may reflect limited statistical power given the modest sample sizes within each cancer type, rather than true consistency of effects.
 
 \subsection{Clinical Implications}
 
-These simple, inexpensive indices, calculable from routine laboratory data in any clinical setting, align with ESPEN recommendations for routine nutritional screening from the time of cancer diagnosis~\cite{muscaritoli2021}. Within the Global Leadership Initiative on Malnutrition (GLIM) framework---the current international consensus for malnutrition diagnosis with over 2,500 citations~\cite{cederholm2019}---low values of PNI, CONUT, or GNRI may serve as screening triggers that warrant formal GLIM assessment, though they do not substitute for the full phenotypic and etiologic criteria. A recent systematic review of 28,726 cancer patients confirmed that GLIM-defined malnutrition consistently predicted decreased survival across 18 of 21 studies~\cite{brown2023}, and a large multicenter prospective study (n=4,769) further validated the prognostic performance of GLIM criteria using simple anthropometric measures~\cite{xie2024}. A PNI threshold of 48.5 identifies a high-risk GI subgroup with a 1.97-year RMST difference at 10 years (PAF 13.4\%). The concentration of risk in the first 2 years suggests that early nutritional evaluation has the greatest potential impact. CONUT, showing stable long-term associations across both unweighted and survey-weighted analyses, may be preferable for extended risk stratification. These data suggest PNI warrants further evaluation as a cross-cancer screening tool, bearing in mind that its GI-specific performance was time-dependent, driven by non-cancer mortality, and attenuated in survey-weighted analysis. CONUT may be preferred for malnutrition-prone malignancies where its additional components provide incremental prognostic information. However, this algorithm was not prospectively tested in this study and requires external validation before clinical adoption.
+These simple, inexpensive indices, calculable from routine laboratory data, align with ESPEN recommendations for nutritional screening from the time of cancer diagnosis~\cite{muscaritoli2021}. Within the Global Leadership Initiative on Malnutrition (GLIM) framework---the current consensus for malnutrition diagnosis~\cite{cederholm2019}---low PNI, CONUT, or GNRI may serve as screening triggers warranting formal GLIM assessment, though they do not substitute for full phenotypic and etiologic criteria. A systematic review of 28,726 cancer patients confirmed that GLIM-defined malnutrition predicted decreased survival across 18 of 21 studies~\cite{brown2023}, and a multicenter study (n=4,769) validated GLIM criteria using simple anthropometric measures~\cite{xie2024}. A PNI threshold of 48.5 identifies a high-risk GI subgroup with a 1.97-year RMST difference at 10 years. The concentration of risk in the first 2~years suggests early nutritional evaluation has greatest potential impact. CONUT, showing stable long-term associations across unweighted and survey-weighted analyses, may be preferable for extended risk stratification. PNI warrants further evaluation as a cross-cancer screening tool, bearing in mind that its GI-specific performance was time-dependent, non-cancer-driven, and attenuated by survey-weighting. CONUT may be preferred for malnutrition-prone malignancies. This algorithm was not prospectively tested and requires external validation before clinical adoption.
 
 \section{Conclusions}
 
@@ -322,7 +321,7 @@ The authors thank the National Center for Health Statistics for conducting the N
 
 \section*{Data Availability Statement}
 
-Data are publicly available at \url{https://www.cdc.gov/nchs/nhanes/}. Analysis code is available at \url{https://github.com/woodhaha/nhanes-nutritional-indices}.
+Data are publicly available at \url{https://www.cdc.gov/nchs/nhanes/}. Analysis code is available at\\ \url{https://github.com/woodhaha/nhanes-nutritional-indices}.
 
 \section*{Funding Statement}
 
