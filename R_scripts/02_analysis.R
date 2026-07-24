@@ -3,7 +3,7 @@
 # Main models, RCS dose-response, subgroup, mediation, sensitivity
 # ==============================================================================
 
-source(here::here("NHANES_cognition_nutrition", "R_scripts", "00_config.R"))
+source(here::here("R_scripts", "00_config.R"))
 
 # ── Load derived data ─────────────────────────────────────────────────────────
 df <- readRDS(file.path(DATA_DIR, "nhanes_2011_2014_derived.rds"))

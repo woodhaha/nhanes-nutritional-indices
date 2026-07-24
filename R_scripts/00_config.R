@@ -6,7 +6,7 @@
 # ==============================================================================
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
-PROJ_ROOT  <- here::here("NHANES_cognition_nutrition")
+PROJ_ROOT  <- here::here()
 DATA_DIR   <- file.path(PROJ_ROOT, "data")
 RESULTS_DIR <- file.path(PROJ_ROOT, "results")
 FIG_DIR    <- file.path(PROJ_ROOT, "figures")

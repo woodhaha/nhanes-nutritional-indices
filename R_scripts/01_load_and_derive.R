@@ -3,7 +3,7 @@
 # Loads NHANES 2011-2014 data, merges tables, derives all analysis variables
 # ==============================================================================
 
-source(here::here("NHANES_cognition_nutrition", "R_scripts", "00_config.R"))
+source(here::here("R_scripts", "00_config.R"))
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SECTION A: Download or load NHANES data

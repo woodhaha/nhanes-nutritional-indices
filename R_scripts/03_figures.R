@@ -2,7 +2,7 @@
 # 03_figures.R — Publication-quality figures
 # ==============================================================================
 
-source(here::here("NHANES_cognition_nutrition", "R_scripts", "00_config.R"))
+source(here::here("R_scripts", "00_config.R"))
 
 # Load results if not already in environment
 if (!exists("main_results")) {
